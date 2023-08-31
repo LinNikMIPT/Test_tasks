@@ -1,0 +1,61 @@
+2023-08-22 11:38:53,774 - pytorch-ner-train - INFO - Config:
+
+torch:
+  device: 'cuda'
+  seed: 42
+
+data:
+  train_data:
+    path: '/home/evgeny/my_projects/ner/pytorch-ner/data/conll2003/train.txt'
+    sep: ' '
+    lower: true
+    verbose: true
+  valid_data:
+    path: '/home/evgeny/my_projects/ner/pytorch-ner/data/conll2003/valid.txt'
+    sep: ' '
+    lower: true
+    verbose: true
+  test_data:
+    path: '/home/evgeny/my_projects/ner/pytorch-ner/data/conll2003/test.txt'
+    sep: ' '
+    lower: true
+    verbose: true
+  token2idx:
+    min_count: 1
+    add_pad: true
+    add_unk: true
+
+dataloader:
+  preprocess: true
+  token_padding: '<PAD>'
+  label_padding: 'O'
+  percentile: 100
+  batch_size: 256
+
+model:
+  embedding:
+    embedding_dim: 128
+  rnn:
+    rnn_unit: LSTM  # GRU, RNN
+    hidden_size: 256
+    num_layers: 1
+    dropout: 0
+    bidirectional: true
+
+optimizer:
+  optimizer_type: Adam  # torch.optim
+  clip_grad_norm: 0.1
+  params:
+    lr: 0.001
+    weight_decay: 0
+    amsgrad: true
+
+train:
+  n_epoch: 50
+  verbose: true
+  tensorboard: true
+
+save:
+  path_to_folder: 'models'
+  export_onnx: false
+

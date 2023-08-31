@@ -1,0 +1,37 @@
+[21-08-23 11:19:42.935] INFO: ner-server.py: Initialization logger for ner-server.py
+[21-08-23 11:19:43.273] INFO: ner-server.py: Initialization NER model BaseNerModel
+[21-08-23 11:19:43.450] INFO: ner-server.py: Initialization NER model BiLSTM
+[21-08-23 11:20:40.598] INFO: ner-server.py: Initialization logger for ner-server.py
+[21-08-23 11:20:40.934] INFO: ner-server.py: Initialization NER model BaseNerModel
+[21-08-23 11:20:41.118] INFO: ner-server.py: Initialization NER model BiLSTM
+[21-08-23 11:41:30.914] INFO: ner-server.py: Initialization logger for ner-server.py
+[21-08-23 11:41:31.249] INFO: ner-server.py: Initialization NER model BaseNerModel
+[21-08-23 11:41:52.741] INFO: ner-server.py: Initialization logger for ner-server.py
+[21-08-23 11:41:53.083] INFO: ner-server.py: Initialization NER model BaseNerModel
+[21-08-23 11:43:14.297] INFO: ner-server.py: Initialization logger for ner-server.py
+[21-08-23 11:43:14.639] INFO: ner-server.py: Initialization NER model BaseNerModel
+[21-08-23 11:45:14.035] INFO: ner-server.py: Initialization logger for ner-server.py
+[21-08-23 11:45:14.373] INFO: ner-server.py: Initialization NER model BaseNerModel
+[21-08-23 11:45:59.949] INFO: ner-server.py: Initialization logger for ner-server.py
+[21-08-23 11:46:00.288] INFO: ner-server.py: Initialization NER model BaseNerModel
+[21-08-23 11:46:00.467] INFO: ner-server.py: Initialization NER model BiLSTM
+[21-08-23 11:46:41.501] INFO: ner-server.py: Get request json: {'Language': 'English', 'Data': 'Apple Inc. is a technology company based in Cupertino, California.'}
+[21-08-23 11:46:41.507] INFO: ner-server.py: predict time: 5.909681 ms
+[21-08-23 11:46:41.509] INFO: ner-server.py: Get request json: {'Language': 'English', 'Data': 'More than 60 people are feared dead after a boat carrying migrants was found off Cape Verde in West Africa. Thirty-eight people, including children, were rescued, with footage showing them being helped ashore, some on stretchers, on the island of Sal. The survivors include four children aged between 12 and 16, a spokesperson for the International Organization for Migration (IOM) said.'}
+[21-08-23 11:46:41.523] INFO: ner-server.py: predict time: 13.540268 ms
+[21-08-23 11:46:41.525] INFO: ner-server.py: Get request json: {'Language': 'Russian', 'Data': 'Частные российские инвесторы подали первый иск к люксембургскому депозитарию Clearstream в Арбитражный суд Москвы, сообщил «Ведомостям» представитель юридической фирмы NSP, которая представляет соистцов.'}
+[21-08-23 11:46:41.534] INFO: ner-server.py: predict time: 8.833408 ms
+[21-08-23 11:51:11.609] INFO: ner-server.py: Initialization logger for ner-server.py
+[21-08-23 11:51:11.946] INFO: ner-server.py: Initialization NER model BaseNerModel
+[21-08-23 11:51:46.076] INFO: ner-server.py: Initialization logger for ner-server.py
+[21-08-23 11:51:46.416] INFO: ner-server.py: Initialization NER model BaseNerModel
+[21-08-23 11:51:46.601] INFO: ner-server.py: Initialization NER model BiLSTM
+[21-08-23 11:52:25.139] INFO: ner-server.py: Get request json: {'Language': 'English', 'Data': 'Apple Inc. is a technology company based in Cupertino, California.'}
+[21-08-23 11:52:25.145] INFO: ner-server.py: predict time: 5.696774 ms
+[21-08-23 11:52:25.147] INFO: ner-server.py: Get request json: {'Language': 'English', 'Data': 'More than 60 people are feared dead after a boat carrying migrants was found off Cape Verde in West Africa. Thirty-eight people, including children, were rescued, with footage showing them being helped ashore, some on stretchers, on the island of Sal. The survivors include four children aged between 12 and 16, a spokesperson for the International Organization for Migration (IOM) said.'}
+[21-08-23 11:52:25.160] INFO: ner-server.py: predict time: 13.438702 ms
+[21-08-23 11:52:25.163] INFO: ner-server.py: Get request json: {'Language': 'Russian', 'Data': 'Частные российские инвесторы подали первый иск к люксембургскому депозитарию Clearstream в Арбитражный суд Москвы, сообщил «Ведомостям» представитель юридической фирмы NSP, которая представляет соистцов.'}
+[21-08-23 11:52:25.169] INFO: ner-server.py: predict time: 6.713867 ms
+[21-08-23 12:27:14.497] INFO: ner-server.py: Initialization logger for ner-server.py
+[21-08-23 12:27:14.834] INFO: ner-server.py: Initialization NER model BaseNerModel
+[21-08-23 12:27:15.014] INFO: ner-server.py: Initialization NER model BiLSTM

@@ -1,0 +1,6 @@
+{
+    "num_experiments": 5,
+    "start_num_epochs": 3,
+    "stop_num_epochs": 7,
+    "path2history_json": "history.json"
+}

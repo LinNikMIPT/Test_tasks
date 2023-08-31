@@ -1,0 +1,46 @@
+{
+  "1677486377074_56.639291854056_47.890889954250.jpg": {
+    "FocalLength": 5.43,
+    "FocalPlaneXResolution": 7.424,
+    "FocalPlaneYResolution": 5.5552,
+    "alt": 108.4514,
+    "azimuth": 108.1423,
+    "lat": 56.639291854056,
+    "lon": 47.89088995425,
+    "speed": 19.3808,
+    "timestamp": 1677486377074
+  },
+  "1677486378104_56.639275207806_47.890988629361.jpg": {
+    "FocalLength": 5.43,
+    "FocalPlaneXResolution": 7.424,
+    "FocalPlaneYResolution": 5.5552,
+    "alt": 108.4406,
+    "azimuth": 108.6112,
+    "lat": 56.639275207806,
+    "lon": 47.890988629361,
+    "speed": 22.131,
+    "timestamp": 1677486378104
+  },
+  "1677486379106_56.639252454750_47.891101877000.jpg": {
+    "FocalLength": 5.43,
+    "FocalPlaneXResolution": 7.424,
+    "FocalPlaneYResolution": 5.5552,
+    "alt": 108.4552,
+    "azimuth": 108.735,
+    "lat": 56.63925245475,
+    "lon": 47.891101877,
+    "speed": 24.4455,
+    "timestamp": 1677486379106
+  },
+  "1677486380136_56.639229259306_47.891211690194.jpg": {
+    "FocalLength": 5.43,
+    "FocalPlaneXResolution": 7.424,
+    "FocalPlaneYResolution": 5.5552,
+    "alt": 108.824,
+    "azimuth": 108.9706,
+    "lat": 56.639229259306,
+    "lon": 47.891211690194,
+    "speed": 25.3933,
+    "timestamp": 1677486380136
+  }
+}

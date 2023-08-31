@@ -1,0 +1,17 @@
+[18-08-23 14:22:38.711] INFO: ner-server.py: Initialization logger for ner-server.py
+[18-08-23 14:22:39.042] INFO: ner-server.py: Initialization NER model BaseNerModel
+[18-08-23 14:22:45.402] INFO: ner-server.py: Get request json: {'Language': 'English', 'Data': 'Apple Inc. is a technology company based in Cupertino, California.'}
+[18-08-23 14:22:45.407] INFO: ner-server.py: predict: 5.742788 ms
+[18-08-23 14:22:45.410] INFO: ner-server.py: Get request json: {'Language': 'English', 'Data': 'More than 60 people are feared dead after a boat carrying migrants was found off Cape Verde in West Africa. Thirty-eight people, including children, were rescued, with footage showing them being helped ashore, some on stretchers, on the island of Sal. The survivors include four children aged between 12 and 16, a spokesperson for the International Organization for Migration (IOM) said.'}
+[18-08-23 14:22:45.423] INFO: ner-server.py: predict: 13.355255 ms
+[18-08-23 14:22:45.425] INFO: ner-server.py: Get request json: {'Language': 'Russian', 'Data': 'Частные российские инвесторы подали первый иск к люксембургскому депозитарию Clearstream в Арбитражный суд Москвы, сообщил «Ведомостям» представитель юридической фирмы NSP, которая представляет соистцов.'}
+[18-08-23 14:22:45.432] INFO: ner-server.py: predict: 6.670475 ms
+[18-08-23 14:37:32.632] INFO: ner-server.py: Initialization logger for ner-server.py
+[18-08-23 14:37:32.966] INFO: ner-server.py: Initialization NER model BaseNerModel
+[18-08-23 14:37:33.263] INFO: ner-server.py: Initialization NER model BaseNerModel
+[18-08-23 14:37:40.701] INFO: ner-server.py: Get request json: {'Language': 'English', 'Data': 'Apple Inc. is a technology company based in Cupertino, California.'}
+[18-08-23 14:37:40.707] INFO: ner-server.py: predict: 5.614519 ms
+[18-08-23 14:37:40.709] INFO: ner-server.py: Get request json: {'Language': 'English', 'Data': 'More than 60 people are feared dead after a boat carrying migrants was found off Cape Verde in West Africa. Thirty-eight people, including children, were rescued, with footage showing them being helped ashore, some on stretchers, on the island of Sal. The survivors include four children aged between 12 and 16, a spokesperson for the International Organization for Migration (IOM) said.'}
+[18-08-23 14:37:40.724] INFO: ner-server.py: predict: 14.770269 ms
+[18-08-23 14:37:40.726] INFO: ner-server.py: Get request json: {'Language': 'Russian', 'Data': 'Частные российские инвесторы подали первый иск к люксембургскому депозитарию Clearstream в Арбитражный суд Москвы, сообщил «Ведомостям» представитель юридической фирмы NSP, которая представляет соистцов.'}
+[18-08-23 14:37:40.733] INFO: ner-server.py: predict: 6.995916 ms

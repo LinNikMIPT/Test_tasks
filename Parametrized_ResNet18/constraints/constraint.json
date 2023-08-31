@@ -1,0 +1,26 @@
+{
+	"num_experiments": {
+		"Default": 20,
+		"Description": "number of experiments",
+		"Type": "int",
+		"ShowInWeb": false
+	},
+	"start_num_epochs": {
+		"Default": 1,
+		"Description": "maximum number of model training epochs",
+		"Type": "int",
+		"ShowInWeb": false
+	},
+	"stop_num_epochs": {
+		"Default": 10,
+		"Description": "minimum number of model training epochs",
+		"Type": "int",
+		"ShowInWeb": false
+	},
+	"path2history_json": {
+		"Default": "history.json",
+		"Description": "path to json file to save train history",
+		"Type": "string",
+		"ShowInWeb": false
+	}
+}

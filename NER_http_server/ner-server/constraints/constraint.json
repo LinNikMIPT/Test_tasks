@@ -1,0 +1,14 @@
+{
+	"host": {
+		"Default": "127.0.0.1",
+		"Description": "адрес HTTP сервера",
+		"Type": "string",
+		"ShowInWeb": false
+	},
+	"port": {
+		"Default": 7000,
+		"Description": "порт HTTP сервера",
+		"Type": "int",
+		"ShowInWeb": false
+	}
+}

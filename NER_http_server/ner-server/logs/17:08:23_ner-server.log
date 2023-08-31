@@ -1,0 +1,40 @@
+[18-08-23 13:56:31.612] INFO: ner-server.py: Get request json: {'Language': 'English', 'Data': 'Apple Inc. is a technology company based in Cupertino, California.'}
+[18-08-23 13:56:31.620] INFO: ner-server.py: predict: 7.35569 ms
+[18-08-23 13:56:31.623] INFO: ner-server.py: Get request json: {'Language': 'English', 'Data': 'More than 60 people are feared dead after a boat carrying migrants was found off Cape Verde in West Africa. Thirty-eight people, including children, were rescued, with footage showing them being helped ashore, some on stretchers, on the island of Sal. The survivors include four children aged between 12 and 16, a spokesperson for the International Organization for Migration (IOM) said.'}
+[18-08-23 13:56:31.632] INFO: ner-server.py: predict: 9.381771 ms
+[18-08-23 13:56:41.902] INFO: ner-server.py: Get request json: {'Language': 'English', 'Data': 'Apple Inc. is a technology company based in Cupertino, California.'}
+[18-08-23 13:56:41.907] INFO: ner-server.py: predict: 5.005121 ms
+[18-08-23 13:56:41.909] INFO: ner-server.py: Get request json: {'Language': 'English', 'Data': 'More than 60 people are feared dead after a boat carrying migrants was found off Cape Verde in West Africa. Thirty-eight people, including children, were rescued, with footage showing them being helped ashore, some on stretchers, on the island of Sal. The survivors include four children aged between 12 and 16, a spokesperson for the International Organization for Migration (IOM) said.'}
+[18-08-23 13:56:41.919] INFO: ner-server.py: predict: 9.321928 ms
+[18-08-23 13:57:02.386] INFO: ner-server.py: Get request json: {'Language': 'English', 'Data': 'Apple Inc. is a technology company based in Cupertino, California.'}
+[18-08-23 13:57:02.391] INFO: ner-server.py: predict: 4.756212 ms
+[18-08-23 13:57:02.393] INFO: ner-server.py: Get request json: {'Language': 'English', 'Data': 'More than 60 people are feared dead after a boat carrying migrants was found off Cape Verde in West Africa. Thirty-eight people, including children, were rescued, with footage showing them being helped ashore, some on stretchers, on the island of Sal. The survivors include four children aged between 12 and 16, a spokesperson for the International Organization for Migration (IOM) said.'}
+[18-08-23 13:57:02.402] INFO: ner-server.py: predict: 8.922815 ms
+[18-08-23 13:57:02.405] INFO: ner-server.py: Get request json: {'Language': 'Russian', 'Data': ''}
+[18-08-23 13:57:02.405] INFO: ner-server.py: predict: 0.116348 ms
+[18-08-23 13:57:49.756] INFO: ner-server.py: Get request json: {'Language': 'English', 'Data': 'Apple Inc. is a technology company based in Cupertino, California.'}
+[18-08-23 13:57:49.761] INFO: ner-server.py: predict: 5.285025 ms
+[18-08-23 13:57:49.763] INFO: ner-server.py: Get request json: {'Language': 'English', 'Data': 'More than 60 people are feared dead after a boat carrying migrants was found off Cape Verde in West Africa. Thirty-eight people, including children, were rescued, with footage showing them being helped ashore, some on stretchers, on the island of Sal. The survivors include four children aged between 12 and 16, a spokesperson for the International Organization for Migration (IOM) said.'}
+[18-08-23 13:57:49.773] INFO: ner-server.py: predict: 9.6488 ms
+[18-08-23 13:59:46.860] INFO: ner-server.py: Get request json: {'Language': 'English', 'Data': 'Apple Inc. is a technology company based in Cupertino, California.'}
+[18-08-23 13:59:46.865] INFO: ner-server.py: predict: 4.654884 ms
+[18-08-23 13:59:46.868] INFO: ner-server.py: Get request json: {'Language': 'English', 'Data': 'More than 60 people are feared dead after a boat carrying migrants was found off Cape Verde in West Africa. Thirty-eight people, including children, were rescued, with footage showing them being helped ashore, some on stretchers, on the island of Sal. The survivors include four children aged between 12 and 16, a spokesperson for the International Organization for Migration (IOM) said.'}
+[18-08-23 13:59:46.877] INFO: ner-server.py: predict: 8.878946 ms
+[18-08-23 14:00:37.917] INFO: ner-server.py: Get request json: {'Language': 'English', 'Data': 'Apple Inc. is a technology company based in Cupertino, California.'}
+[18-08-23 14:00:37.922] INFO: ner-server.py: predict: 5.510092 ms
+[18-08-23 14:00:37.924] INFO: ner-server.py: Get request json: {'Language': 'English', 'Data': 'More than 60 people are feared dead after a boat carrying migrants was found off Cape Verde in West Africa. Thirty-eight people, including children, were rescued, with footage showing them being helped ashore, some on stretchers, on the island of Sal. The survivors include four children aged between 12 and 16, a spokesperson for the International Organization for Migration (IOM) said.'}
+[18-08-23 14:00:37.934] INFO: ner-server.py: predict: 8.984327 ms
+[18-08-23 14:01:48.580] INFO: ner-server.py: Get request json: {'Language': 'English', 'Data': 'Apple Inc. is a technology company based in Cupertino, California.'}
+[18-08-23 14:01:48.585] INFO: ner-server.py: predict: 4.563093 ms
+[18-08-23 14:01:48.587] INFO: ner-server.py: Get request json: {'Language': 'English', 'Data': 'More than 60 people are feared dead after a boat carrying migrants was found off Cape Verde in West Africa. Thirty-eight people, including children, were rescued, with footage showing them being helped ashore, some on stretchers, on the island of Sal. The survivors include four children aged between 12 and 16, a spokesperson for the International Organization for Migration (IOM) said.'}
+[18-08-23 14:01:48.596] INFO: ner-server.py: predict: 9.036064 ms
+[18-08-23 14:03:15.870] INFO: ner-server.py: Get request json: {'Language': 'English', 'Data': 'Apple Inc. is a technology company based in Cupertino, California.'}
+[18-08-23 14:03:15.875] INFO: ner-server.py: predict: 4.895926 ms
+[18-08-23 14:03:15.877] INFO: ner-server.py: Get request json: {'Language': 'English', 'Data': 'More than 60 people are feared dead after a boat carrying migrants was found off Cape Verde in West Africa. Thirty-eight people, including children, were rescued, with footage showing them being helped ashore, some on stretchers, on the island of Sal. The survivors include four children aged between 12 and 16, a spokesperson for the International Organization for Migration (IOM) said.'}
+[18-08-23 14:03:15.887] INFO: ner-server.py: predict: 8.966684 ms
+[18-08-23 14:09:37.216] INFO: ner-server.py: Get request json: {'Language': 'English', 'Data': 'Apple Inc. is a technology company based in Cupertino, California.'}
+[18-08-23 14:09:37.221] INFO: ner-server.py: predict: 5.388021 ms
+[18-08-23 14:09:37.223] INFO: ner-server.py: Get request json: {'Language': 'English', 'Data': 'More than 60 people are feared dead after a boat carrying migrants was found off Cape Verde in West Africa. Thirty-eight people, including children, were rescued, with footage showing them being helped ashore, some on stretchers, on the island of Sal. The survivors include four children aged between 12 and 16, a spokesperson for the International Organization for Migration (IOM) said.'}
+[18-08-23 14:09:37.232] INFO: ner-server.py: predict: 8.889198 ms
+[18-08-23 14:09:37.234] INFO: ner-server.py: Get request json: {'Language': 'Russian', 'Data': 'Частные российские инвесторы подали первый иск к люксембургскому депозитарию Clearstream в Арбитражный суд Москвы, сообщил «Ведомостям» представитель юридической фирмы NSP, которая представляет соистцов.'}
+[18-08-23 14:09:37.241] INFO: ner-server.py: predict: 6.584644 ms

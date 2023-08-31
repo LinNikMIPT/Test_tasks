@@ -1,0 +1,6 @@
+[21-08-23 09:43:40.772] INFO: ner-server.py: Get request json: {'Language': 'English', 'Data': 'Apple Inc. is a technology company based in Cupertino, California.'}
+[21-08-23 09:43:40.778] INFO: ner-server.py: predict: 5.276203 ms
+[21-08-23 09:43:40.780] INFO: ner-server.py: Get request json: {'Language': 'English', 'Data': 'More than 60 people are feared dead after a boat carrying migrants was found off Cape Verde in West Africa. Thirty-eight people, including children, were rescued, with footage showing them being helped ashore, some on stretchers, on the island of Sal. The survivors include four children aged between 12 and 16, a spokesperson for the International Organization for Migration (IOM) said.'}
+[21-08-23 09:43:40.789] INFO: ner-server.py: predict: 8.976698 ms
+[21-08-23 09:43:40.792] INFO: ner-server.py: Get request json: {'Language': 'Russian', 'Data': 'Частные российские инвесторы подали первый иск к люксембургскому депозитарию Clearstream в Арбитражный суд Москвы, сообщил «Ведомостям» представитель юридической фирмы NSP, которая представляет соистцов.'}
+[21-08-23 09:43:40.797] INFO: ner-server.py: predict: 5.68819 ms

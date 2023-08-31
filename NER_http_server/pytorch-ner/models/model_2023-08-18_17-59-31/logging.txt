@@ -1,0 +1,1477 @@
+2023-08-18 17:59:31,165 - pytorch-ner-train - INFO - Config:
+
+torch:
+  device: 'cuda'
+  seed: 42
+
+data:
+  train_data:
+    path: 'data/conll2003/train.txt'
+    sep: ' '
+    lower: true
+    verbose: true
+  valid_data:
+    path: 'data/conll2003/valid.txt'
+    sep: ' '
+    lower: true
+    verbose: true
+  test_data:
+    path: 'data/conll2003/test.txt'
+    sep: ' '
+    lower: true
+    verbose: true
+  token2idx:
+    min_count: 1
+    add_pad: true
+    add_unk: true
+
+dataloader:
+  preprocess: true
+  token_padding: '<PAD>'
+  label_padding: 'O'
+  percentile: 100
+  batch_size: 256
+
+model:
+  embedding:
+    embedding_dim: 128
+  rnn:
+    rnn_unit: LSTM  # GRU, RNN
+    hidden_size: 256
+    num_layers: 1
+    dropout: 0
+    bidirectional: true
+
+optimizer:
+  optimizer_type: Adam  # torch.optim
+  clip_grad_norm: 0.1
+  params:
+    lr: 0.001
+    weight_decay: 0
+    amsgrad: true
+
+train:
+  n_epoch: 50
+  verbose: true
+  tensorboard: true
+
+save:
+  path_to_folder: 'models'
+  export_onnx: false
+
+2023-08-18 17:59:33,837 - pytorch-ner-train - INFO - Sanity Check starting...
+2023-08-18 17:59:33,841 - pytorch-ner-train - INFO - Sanity Check passed!
+
+2023-08-18 17:59:33,841 - pytorch-ner-train - INFO - epoch [1/50]
+
+2023-08-18 17:59:35,508 - pytorch-ner-train - INFO - train loss: 0.8494379954822993
+2023-08-18 17:59:35,508 - pytorch-ner-train - INFO - train f1 B-LOC: 0.12154293247751159
+2023-08-18 17:59:35,508 - pytorch-ner-train - INFO - train f1 B-MISC: 0.012169897255293195
+2023-08-18 17:59:35,508 - pytorch-ner-train - INFO - train f1 B-ORG: 0.04537435647951453
+2023-08-18 17:59:35,509 - pytorch-ner-train - INFO - train f1 B-PER: 0.06432588025198614
+2023-08-18 17:59:35,509 - pytorch-ner-train - INFO - train f1 I-LOC: 0.0
+2023-08-18 17:59:35,509 - pytorch-ner-train - INFO - train f1 I-MISC: 0.014560203443306788
+2023-08-18 17:59:35,509 - pytorch-ner-train - INFO - train f1 I-ORG: 0.006084297290572296
+2023-08-18 17:59:35,509 - pytorch-ner-train - INFO - train f1 I-PER: 0.09847713202825784
+2023-08-18 17:59:35,509 - pytorch-ner-train - INFO - train f1 O: 0.8939292560737779
+2023-08-18 17:59:35,509 - pytorch-ner-train - INFO - train f1-weighted: 0.7552725846567411
+2023-08-18 17:59:35,509 - pytorch-ner-train - INFO - 
+
+2023-08-18 17:59:44,224 - pytorch-ner-train - INFO - valid loss: 0.6347433361942473
+2023-08-18 17:59:44,224 - pytorch-ner-train - INFO - valid f1 B-LOC: 0.10365822729459091
+2023-08-18 17:59:44,224 - pytorch-ner-train - INFO - valid f1 B-MISC: 0.0030784030784030783
+2023-08-18 17:59:44,224 - pytorch-ner-train - INFO - valid f1 B-ORG: 0.04342472342472343
+2023-08-18 17:59:44,225 - pytorch-ner-train - INFO - valid f1 B-PER: 0.07226092530479981
+2023-08-18 17:59:44,225 - pytorch-ner-train - INFO - valid f1 I-LOC: 0.0002886002886002886
+2023-08-18 17:59:44,225 - pytorch-ner-train - INFO - valid f1 I-MISC: 0.0011544011544011544
+2023-08-18 17:59:44,225 - pytorch-ner-train - INFO - valid f1 I-ORG: 0.0
+2023-08-18 17:59:44,225 - pytorch-ner-train - INFO - valid f1 I-PER: 0.07589707331561969
+2023-08-18 17:59:44,225 - pytorch-ner-train - INFO - valid f1 O: 0.8855323479284424
+2023-08-18 17:59:44,225 - pytorch-ner-train - INFO - valid f1-weighted: 0.7753861106496581
+2023-08-18 17:59:44,226 - pytorch-ner-train - INFO - 
+
+2023-08-18 17:59:44,226 - pytorch-ner-train - INFO - epoch [2/50]
+
+2023-08-18 17:59:45,859 - pytorch-ner-train - INFO - train loss: 0.42644472698033864
+2023-08-18 17:59:45,859 - pytorch-ner-train - INFO - train f1 B-LOC: 0.5666768336702821
+2023-08-18 17:59:45,859 - pytorch-ner-train - INFO - train f1 B-MISC: 0.3010095163786156
+2023-08-18 17:59:45,859 - pytorch-ner-train - INFO - train f1 B-ORG: 0.3821560996008632
+2023-08-18 17:59:45,859 - pytorch-ner-train - INFO - train f1 B-PER: 0.5146244681068101
+2023-08-18 17:59:45,859 - pytorch-ner-train - INFO - train f1 I-LOC: 0.20215907739967529
+2023-08-18 17:59:45,859 - pytorch-ner-train - INFO - train f1 I-MISC: 0.17143831894101347
+2023-08-18 17:59:45,859 - pytorch-ner-train - INFO - train f1 I-ORG: 0.12074580683989336
+2023-08-18 17:59:45,859 - pytorch-ner-train - INFO - train f1 I-PER: 0.547867193589479
+2023-08-18 17:59:45,859 - pytorch-ner-train - INFO - train f1 O: 0.9404377201022744
+2023-08-18 17:59:45,859 - pytorch-ner-train - INFO - train f1-weighted: 0.8538211808056101
+2023-08-18 17:59:45,859 - pytorch-ner-train - INFO - 
+
+2023-08-18 17:59:54,515 - pytorch-ner-train - INFO - valid loss: 0.421062298499795
+2023-08-18 17:59:54,515 - pytorch-ner-train - INFO - valid f1 B-LOC: 0.21592122003377415
+2023-08-18 17:59:54,515 - pytorch-ner-train - INFO - valid f1 B-MISC: 0.07306397306397305
+2023-08-18 17:59:54,516 - pytorch-ner-train - INFO - valid f1 B-ORG: 0.10901257472686043
+2023-08-18 17:59:54,516 - pytorch-ner-train - INFO - valid f1 B-PER: 0.16305487321721088
+2023-08-18 17:59:54,516 - pytorch-ner-train - INFO - valid f1 I-LOC: 0.023953823953823953
+2023-08-18 17:59:54,516 - pytorch-ner-train - INFO - valid f1 I-MISC: 0.02674362674362674
+2023-08-18 17:59:54,516 - pytorch-ner-train - INFO - valid f1 I-ORG: 0.03376188185711995
+2023-08-18 17:59:54,516 - pytorch-ner-train - INFO - valid f1 I-PER: 0.12181139940538438
+2023-08-18 17:59:54,517 - pytorch-ner-train - INFO - valid f1 O: 0.929395885075966
+2023-08-18 17:59:54,517 - pytorch-ner-train - INFO - valid f1-weighted: 0.8661659631176652
+2023-08-18 17:59:54,517 - pytorch-ner-train - INFO - 
+
+2023-08-18 17:59:54,517 - pytorch-ner-train - INFO - epoch [3/50]
+
+2023-08-18 17:59:56,143 - pytorch-ner-train - INFO - train loss: 0.2852723497455403
+2023-08-18 17:59:56,144 - pytorch-ner-train - INFO - train f1 B-LOC: 0.7435559184700266
+2023-08-18 17:59:56,144 - pytorch-ner-train - INFO - train f1 B-MISC: 0.5618855609368343
+2023-08-18 17:59:56,144 - pytorch-ner-train - INFO - train f1 B-ORG: 0.5742631077237734
+2023-08-18 17:59:56,144 - pytorch-ner-train - INFO - train f1 B-PER: 0.6937981318883004
+2023-08-18 17:59:56,144 - pytorch-ner-train - INFO - train f1 I-LOC: 0.6064225138619884
+2023-08-18 17:59:56,144 - pytorch-ner-train - INFO - train f1 I-MISC: 0.46743381602548806
+2023-08-18 17:59:56,144 - pytorch-ner-train - INFO - train f1 I-ORG: 0.45236632438966473
+2023-08-18 17:59:56,144 - pytorch-ner-train - INFO - train f1 I-PER: 0.728807469028521
+2023-08-18 17:59:56,144 - pytorch-ner-train - INFO - train f1 O: 0.9614098687971707
+2023-08-18 17:59:56,144 - pytorch-ner-train - INFO - train f1-weighted: 0.9073237160517152
+2023-08-18 17:59:56,144 - pytorch-ner-train - INFO - 
+
+2023-08-18 18:00:04,885 - pytorch-ner-train - INFO - valid loss: 0.33457971381226453
+2023-08-18 18:00:04,885 - pytorch-ner-train - INFO - valid f1 B-LOC: 0.24672594841426013
+2023-08-18 18:00:04,885 - pytorch-ner-train - INFO - valid f1 B-MISC: 0.1017687074829932
+2023-08-18 18:00:04,886 - pytorch-ner-train - INFO - valid f1 B-ORG: 0.15224146224146223
+2023-08-18 18:00:04,886 - pytorch-ner-train - INFO - valid f1 B-PER: 0.1725793727004263
+2023-08-18 18:00:04,886 - pytorch-ner-train - INFO - valid f1 I-LOC: 0.02813852813852814
+2023-08-18 18:00:04,886 - pytorch-ner-train - INFO - valid f1 I-MISC: 0.029956709956709952
+2023-08-18 18:00:04,886 - pytorch-ner-train - INFO - valid f1 I-ORG: 0.05363813034808705
+2023-08-18 18:00:04,886 - pytorch-ner-train - INFO - valid f1 I-PER: 0.13475495550471936
+2023-08-18 18:00:04,887 - pytorch-ner-train - INFO - valid f1 O: 0.9436593316427708
+2023-08-18 18:00:04,887 - pytorch-ner-train - INFO - valid f1-weighted: 0.8944860019688491
+2023-08-18 18:00:04,887 - pytorch-ner-train - INFO - 
+
+2023-08-18 18:00:04,887 - pytorch-ner-train - INFO - epoch [4/50]
+
+2023-08-18 18:00:06,529 - pytorch-ner-train - INFO - train loss: 0.2062588725554741
+2023-08-18 18:00:06,530 - pytorch-ner-train - INFO - train f1 B-LOC: 0.8160974829833731
+2023-08-18 18:00:06,530 - pytorch-ner-train - INFO - train f1 B-MISC: 0.6817887027598237
+2023-08-18 18:00:06,530 - pytorch-ner-train - INFO - train f1 B-ORG: 0.6870476584385601
+2023-08-18 18:00:06,530 - pytorch-ner-train - INFO - train f1 B-PER: 0.7844643123761305
+2023-08-18 18:00:06,530 - pytorch-ner-train - INFO - train f1 I-LOC: 0.7013280850401529
+2023-08-18 18:00:06,530 - pytorch-ner-train - INFO - train f1 I-MISC: 0.5727298789406631
+2023-08-18 18:00:06,530 - pytorch-ner-train - INFO - train f1 I-ORG: 0.632437636858032
+2023-08-18 18:00:06,530 - pytorch-ner-train - INFO - train f1 I-PER: 0.8242564556673732
+2023-08-18 18:00:06,530 - pytorch-ner-train - INFO - train f1 O: 0.9733011351685771
+2023-08-18 18:00:06,530 - pytorch-ner-train - INFO - train f1-weighted: 0.9349005429321037
+2023-08-18 18:00:06,530 - pytorch-ner-train - INFO - 
+
+2023-08-18 18:00:15,206 - pytorch-ner-train - INFO - valid loss: 0.289761125931179
+2023-08-18 18:00:15,206 - pytorch-ner-train - INFO - valid f1 B-LOC: 0.2782165261386041
+2023-08-18 18:00:15,206 - pytorch-ner-train - INFO - valid f1 B-MISC: 0.11069607641036212
+2023-08-18 18:00:15,206 - pytorch-ner-train - INFO - valid f1 B-ORG: 0.17201607915893632
+2023-08-18 18:00:15,206 - pytorch-ner-train - INFO - valid f1 B-PER: 0.2084263568243907
+2023-08-18 18:00:15,207 - pytorch-ner-train - INFO - valid f1 I-LOC: 0.03921115921115921
+2023-08-18 18:00:15,207 - pytorch-ner-train - INFO - valid f1 I-MISC: 0.034501019262924024
+2023-08-18 18:00:15,207 - pytorch-ner-train - INFO - valid f1 I-ORG: 0.06288895648203006
+2023-08-18 18:00:15,207 - pytorch-ner-train - INFO - valid f1 I-PER: 0.160271470592114
+2023-08-18 18:00:15,207 - pytorch-ner-train - INFO - valid f1 O: 0.9481346295782686
+2023-08-18 18:00:15,207 - pytorch-ner-train - INFO - valid f1-weighted: 0.9112834605598326
+2023-08-18 18:00:15,207 - pytorch-ner-train - INFO - 
+
+2023-08-18 18:00:15,207 - pytorch-ner-train - INFO - epoch [5/50]
+
+2023-08-18 18:00:16,853 - pytorch-ner-train - INFO - train loss: 0.14987893389948345
+2023-08-18 18:00:16,853 - pytorch-ner-train - INFO - train f1 B-LOC: 0.867299637975633
+2023-08-18 18:00:16,853 - pytorch-ner-train - INFO - train f1 B-MISC: 0.7696124458491922
+2023-08-18 18:00:16,853 - pytorch-ner-train - INFO - train f1 B-ORG: 0.7713599263907591
+2023-08-18 18:00:16,853 - pytorch-ner-train - INFO - train f1 B-PER: 0.8503974775842849
+2023-08-18 18:00:16,853 - pytorch-ner-train - INFO - train f1 I-LOC: 0.784610527543956
+2023-08-18 18:00:16,853 - pytorch-ner-train - INFO - train f1 I-MISC: 0.6778778466257823
+2023-08-18 18:00:16,853 - pytorch-ner-train - INFO - train f1 I-ORG: 0.7457465172142096
+2023-08-18 18:00:16,853 - pytorch-ner-train - INFO - train f1 I-PER: 0.8867005120296586
+2023-08-18 18:00:16,853 - pytorch-ner-train - INFO - train f1 O: 0.9814936605824413
+2023-08-18 18:00:16,853 - pytorch-ner-train - INFO - train f1-weighted: 0.9540785933081776
+2023-08-18 18:00:16,853 - pytorch-ner-train - INFO - 
+
+2023-08-18 18:00:25,568 - pytorch-ner-train - INFO - valid loss: 0.2605410871623478
+2023-08-18 18:00:25,568 - pytorch-ner-train - INFO - valid f1 B-LOC: 0.29140041616232093
+2023-08-18 18:00:25,568 - pytorch-ner-train - INFO - valid f1 B-MISC: 0.1251041022469594
+2023-08-18 18:00:25,569 - pytorch-ner-train - INFO - valid f1 B-ORG: 0.18522714258644993
+2023-08-18 18:00:25,569 - pytorch-ner-train - INFO - valid f1 B-PER: 0.22872628705985637
+2023-08-18 18:00:25,569 - pytorch-ner-train - INFO - valid f1 I-LOC: 0.04180856180856181
+2023-08-18 18:00:25,569 - pytorch-ner-train - INFO - valid f1 I-MISC: 0.03890698366888843
+2023-08-18 18:00:25,569 - pytorch-ner-train - INFO - valid f1 I-ORG: 0.06801889308382815
+2023-08-18 18:00:25,570 - pytorch-ner-train - INFO - valid f1 I-PER: 0.17250364407023433
+2023-08-18 18:00:25,570 - pytorch-ner-train - INFO - valid f1 O: 0.9517892907953724
+2023-08-18 18:00:25,570 - pytorch-ner-train - INFO - valid f1-weighted: 0.9222457608628462
+2023-08-18 18:00:25,570 - pytorch-ner-train - INFO - 
+
+2023-08-18 18:00:25,570 - pytorch-ner-train - INFO - epoch [6/50]
+
+2023-08-18 18:00:27,197 - pytorch-ner-train - INFO - train loss: 0.10651386945934618
+2023-08-18 18:00:27,197 - pytorch-ner-train - INFO - train f1 B-LOC: 0.9048466096233592
+2023-08-18 18:00:27,197 - pytorch-ner-train - INFO - train f1 B-MISC: 0.8320358181257906
+2023-08-18 18:00:27,197 - pytorch-ner-train - INFO - train f1 B-ORG: 0.8354869622020371
+2023-08-18 18:00:27,197 - pytorch-ner-train - INFO - train f1 B-PER: 0.8976974584574481
+2023-08-18 18:00:27,198 - pytorch-ner-train - INFO - train f1 I-LOC: 0.8342613757500118
+2023-08-18 18:00:27,198 - pytorch-ner-train - INFO - train f1 I-MISC: 0.776249999022825
+2023-08-18 18:00:27,198 - pytorch-ner-train - INFO - train f1 I-ORG: 0.833536762345529
+2023-08-18 18:00:27,198 - pytorch-ner-train - INFO - train f1 I-PER: 0.9339381156423836
+2023-08-18 18:00:27,198 - pytorch-ner-train - INFO - train f1 O: 0.9878137291631058
+2023-08-18 18:00:27,198 - pytorch-ner-train - INFO - train f1-weighted: 0.9688270287222528
+2023-08-18 18:00:27,198 - pytorch-ner-train - INFO - 
+
+2023-08-18 18:00:35,900 - pytorch-ner-train - INFO - valid loss: 0.2418241805904464
+2023-08-18 18:00:35,901 - pytorch-ner-train - INFO - valid f1 B-LOC: 0.2967841858318048
+2023-08-18 18:00:35,901 - pytorch-ner-train - INFO - valid f1 B-MISC: 0.1313639799354085
+2023-08-18 18:00:35,901 - pytorch-ner-train - INFO - valid f1 B-ORG: 0.19195858814906436
+2023-08-18 18:00:35,901 - pytorch-ner-train - INFO - valid f1 B-PER: 0.23699131497302814
+2023-08-18 18:00:35,901 - pytorch-ner-train - INFO - valid f1 I-LOC: 0.04123136123136124
+2023-08-18 18:00:35,901 - pytorch-ner-train - INFO - valid f1 I-MISC: 0.038130969559540984
+2023-08-18 18:00:35,902 - pytorch-ner-train - INFO - valid f1 I-ORG: 0.07162063403214408
+2023-08-18 18:00:35,902 - pytorch-ner-train - INFO - valid f1 I-PER: 0.1777416178535679
+2023-08-18 18:00:35,902 - pytorch-ner-train - INFO - valid f1 O: 0.9535585733260561
+2023-08-18 18:00:35,902 - pytorch-ner-train - INFO - valid f1-weighted: 0.9282701731590716
+2023-08-18 18:00:35,902 - pytorch-ner-train - INFO - 
+
+2023-08-18 18:00:35,902 - pytorch-ner-train - INFO - epoch [7/50]
+
+2023-08-18 18:00:37,539 - pytorch-ner-train - INFO - train loss: 0.07355024880271847
+2023-08-18 18:00:37,539 - pytorch-ner-train - INFO - train f1 B-LOC: 0.9328312624674258
+2023-08-18 18:00:37,539 - pytorch-ner-train - INFO - train f1 B-MISC: 0.8801694382335155
+2023-08-18 18:00:37,539 - pytorch-ner-train - INFO - train f1 B-ORG: 0.8894982359813511
+2023-08-18 18:00:37,539 - pytorch-ner-train - INFO - train f1 B-PER: 0.9378120773069046
+2023-08-18 18:00:37,539 - pytorch-ner-train - INFO - train f1 I-LOC: 0.8859439324339139
+2023-08-18 18:00:37,539 - pytorch-ner-train - INFO - train f1 I-MISC: 0.8463304990732329
+2023-08-18 18:00:37,539 - pytorch-ner-train - INFO - train f1 I-ORG: 0.9019019480952452
+2023-08-18 18:00:37,539 - pytorch-ner-train - INFO - train f1 I-PER: 0.9642530505882652
+2023-08-18 18:00:37,539 - pytorch-ner-train - INFO - train f1 O: 0.9926507245109382
+2023-08-18 18:00:37,540 - pytorch-ner-train - INFO - train f1-weighted: 0.9801508498016106
+2023-08-18 18:00:37,540 - pytorch-ner-train - INFO - 
+
+2023-08-18 18:00:46,175 - pytorch-ner-train - INFO - valid loss: 0.23588561572072633
+2023-08-18 18:00:46,176 - pytorch-ner-train - INFO - valid f1 B-LOC: 0.297441782203687
+2023-08-18 18:00:46,176 - pytorch-ner-train - INFO - valid f1 B-MISC: 0.13765203050917338
+2023-08-18 18:00:46,176 - pytorch-ner-train - INFO - valid f1 B-ORG: 0.19361991383636404
+2023-08-18 18:00:46,176 - pytorch-ner-train - INFO - valid f1 B-PER: 0.24235407047883925
+2023-08-18 18:00:46,176 - pytorch-ner-train - INFO - valid f1 I-LOC: 0.042866762866762866
+2023-08-18 18:00:46,177 - pytorch-ner-train - INFO - valid f1 I-MISC: 0.04329936688480105
+2023-08-18 18:00:46,177 - pytorch-ner-train - INFO - valid f1 I-ORG: 0.07011781265919285
+2023-08-18 18:00:46,177 - pytorch-ner-train - INFO - valid f1 I-PER: 0.17797018678343554
+2023-08-18 18:00:46,177 - pytorch-ner-train - INFO - valid f1 O: 0.9521493774891794
+2023-08-18 18:00:46,178 - pytorch-ner-train - INFO - valid f1-weighted: 0.9296507414126317
+2023-08-18 18:00:46,178 - pytorch-ner-train - INFO - 
+
+2023-08-18 18:00:46,178 - pytorch-ner-train - INFO - epoch [8/50]
+
+2023-08-18 18:00:47,818 - pytorch-ner-train - INFO - train loss: 0.04920903511219105
+2023-08-18 18:00:47,818 - pytorch-ner-train - INFO - train f1 B-LOC: 0.956371041483103
+2023-08-18 18:00:47,818 - pytorch-ner-train - INFO - train f1 B-MISC: 0.9206113393587503
+2023-08-18 18:00:47,818 - pytorch-ner-train - INFO - train f1 B-ORG: 0.9311654477569647
+2023-08-18 18:00:47,818 - pytorch-ner-train - INFO - train f1 B-PER: 0.9637247989724886
+2023-08-18 18:00:47,819 - pytorch-ner-train - INFO - train f1 I-LOC: 0.92991239295183
+2023-08-18 18:00:47,819 - pytorch-ner-train - INFO - train f1 I-MISC: 0.905091001001591
+2023-08-18 18:00:47,819 - pytorch-ner-train - INFO - train f1 I-ORG: 0.9440657993241834
+2023-08-18 18:00:47,819 - pytorch-ner-train - INFO - train f1 I-PER: 0.9797663509708878
+2023-08-18 18:00:47,819 - pytorch-ner-train - INFO - train f1 O: 0.9957956412384822
+2023-08-18 18:00:47,819 - pytorch-ner-train - INFO - train f1-weighted: 0.9879754873603815
+2023-08-18 18:00:47,819 - pytorch-ner-train - INFO - 
+
+2023-08-18 18:00:56,440 - pytorch-ner-train - INFO - valid loss: 0.2480864732294722
+2023-08-18 18:00:56,440 - pytorch-ner-train - INFO - valid f1 B-LOC: 0.30009940676607344
+2023-08-18 18:00:56,440 - pytorch-ner-train - INFO - valid f1 B-MISC: 0.13829107400535973
+2023-08-18 18:00:56,440 - pytorch-ner-train - INFO - valid f1 B-ORG: 0.19945280469089993
+2023-08-18 18:00:56,440 - pytorch-ner-train - INFO - valid f1 B-PER: 0.23982121262898964
+2023-08-18 18:00:56,441 - pytorch-ner-train - INFO - valid f1 I-LOC: 0.043001443001443
+2023-08-18 18:00:56,441 - pytorch-ner-train - INFO - valid f1 I-MISC: 0.04324439540125814
+2023-08-18 18:00:56,441 - pytorch-ner-train - INFO - valid f1 I-ORG: 0.07519208785442552
+2023-08-18 18:00:56,441 - pytorch-ner-train - INFO - valid f1 I-PER: 0.17241387625618954
+2023-08-18 18:00:56,441 - pytorch-ner-train - INFO - valid f1 O: 0.9463872968175817
+2023-08-18 18:00:56,441 - pytorch-ner-train - INFO - valid f1-weighted: 0.9270304223375784
+2023-08-18 18:00:56,441 - pytorch-ner-train - INFO - 
+
+2023-08-18 18:00:56,441 - pytorch-ner-train - INFO - epoch [9/50]
+
+2023-08-18 18:00:58,057 - pytorch-ner-train - INFO - train loss: 0.03133125085446794
+2023-08-18 18:00:58,057 - pytorch-ner-train - INFO - train f1 B-LOC: 0.9749487937247907
+2023-08-18 18:00:58,057 - pytorch-ner-train - INFO - train f1 B-MISC: 0.9503846347382301
+2023-08-18 18:00:58,057 - pytorch-ner-train - INFO - train f1 B-ORG: 0.9597375477248495
+2023-08-18 18:00:58,057 - pytorch-ner-train - INFO - train f1 B-PER: 0.9817701803092204
+2023-08-18 18:00:58,058 - pytorch-ner-train - INFO - train f1 I-LOC: 0.9640627453629691
+2023-08-18 18:00:58,058 - pytorch-ner-train - INFO - train f1 I-MISC: 0.9483938353377752
+2023-08-18 18:00:58,058 - pytorch-ner-train - INFO - train f1 I-ORG: 0.9711924832594527
+2023-08-18 18:00:58,058 - pytorch-ner-train - INFO - train f1 I-PER: 0.9925155735780267
+2023-08-18 18:00:58,058 - pytorch-ner-train - INFO - train f1 O: 0.9978469270796059
+2023-08-18 18:00:58,058 - pytorch-ner-train - INFO - train f1-weighted: 0.9935095912845914
+2023-08-18 18:00:58,058 - pytorch-ner-train - INFO - 
+
+2023-08-18 18:01:06,760 - pytorch-ner-train - INFO - valid loss: 0.2467606929749795
+2023-08-18 18:01:06,760 - pytorch-ner-train - INFO - valid f1 B-LOC: 0.30265033026937793
+2023-08-18 18:01:06,760 - pytorch-ner-train - INFO - valid f1 B-MISC: 0.1349721706864564
+2023-08-18 18:01:06,760 - pytorch-ner-train - INFO - valid f1 B-ORG: 0.1981255348787816
+2023-08-18 18:01:06,761 - pytorch-ner-train - INFO - valid f1 B-PER: 0.2365090602574794
+2023-08-18 18:01:06,761 - pytorch-ner-train - INFO - valid f1 I-LOC: 0.04354016354016353
+2023-08-18 18:01:06,761 - pytorch-ner-train - INFO - valid f1 I-MISC: 0.042202685788119955
+2023-08-18 18:01:06,761 - pytorch-ner-train - INFO - valid f1 I-ORG: 0.0714431219498701
+2023-08-18 18:01:06,761 - pytorch-ner-train - INFO - valid f1 I-PER: 0.1744653740544756
+2023-08-18 18:01:06,762 - pytorch-ner-train - INFO - valid f1 O: 0.9465866769324026
+2023-08-18 18:01:06,762 - pytorch-ner-train - INFO - valid f1-weighted: 0.9283431819623847
+2023-08-18 18:01:06,762 - pytorch-ner-train - INFO - 
+
+2023-08-18 18:01:06,762 - pytorch-ner-train - INFO - epoch [10/50]
+
+2023-08-18 18:01:08,417 - pytorch-ner-train - INFO - train loss: 0.01966540583298873
+2023-08-18 18:01:08,417 - pytorch-ner-train - INFO - train f1 B-LOC: 0.9869133981875063
+2023-08-18 18:01:08,417 - pytorch-ner-train - INFO - train f1 B-MISC: 0.9768812720349962
+2023-08-18 18:01:08,417 - pytorch-ner-train - INFO - train f1 B-ORG: 0.9798494638330406
+2023-08-18 18:01:08,417 - pytorch-ner-train - INFO - train f1 B-PER: 0.9923121999384905
+2023-08-18 18:01:08,417 - pytorch-ner-train - INFO - train f1 I-LOC: 0.9812405286675006
+2023-08-18 18:01:08,417 - pytorch-ner-train - INFO - train f1 I-MISC: 0.9723050960320445
+2023-08-18 18:01:08,417 - pytorch-ner-train - INFO - train f1 I-ORG: 0.9835466988647483
+2023-08-18 18:01:08,417 - pytorch-ner-train - INFO - train f1 I-PER: 0.9960733790775697
+2023-08-18 18:01:08,417 - pytorch-ner-train - INFO - train f1 O: 0.9990287002240202
+2023-08-18 18:01:08,418 - pytorch-ner-train - INFO - train f1-weighted: 0.9968533452888392
+2023-08-18 18:01:08,418 - pytorch-ner-train - INFO - 
+
+2023-08-18 18:01:17,115 - pytorch-ner-train - INFO - valid loss: 0.2537021566444006
+2023-08-18 18:01:17,115 - pytorch-ner-train - INFO - valid f1 B-LOC: 0.3063847263847264
+2023-08-18 18:01:17,116 - pytorch-ner-train - INFO - valid f1 B-MISC: 0.14324285943333562
+2023-08-18 18:01:17,116 - pytorch-ner-train - INFO - valid f1 B-ORG: 0.19791351986157182
+2023-08-18 18:01:17,116 - pytorch-ner-train - INFO - valid f1 B-PER: 0.23986165990494993
+2023-08-18 18:01:17,116 - pytorch-ner-train - INFO - valid f1 I-LOC: 0.044983164983164986
+2023-08-18 18:01:17,116 - pytorch-ner-train - INFO - valid f1 I-MISC: 0.043302115458978205
+2023-08-18 18:01:17,116 - pytorch-ner-train - INFO - valid f1 I-ORG: 0.07355778981320106
+2023-08-18 18:01:17,117 - pytorch-ner-train - INFO - valid f1 I-PER: 0.17716815218569604
+2023-08-18 18:01:17,117 - pytorch-ner-train - INFO - valid f1 O: 0.9396510590197432
+2023-08-18 18:01:17,117 - pytorch-ner-train - INFO - valid f1-weighted: 0.9255253733228239
+2023-08-18 18:01:17,117 - pytorch-ner-train - INFO - 
+
+2023-08-18 18:01:17,117 - pytorch-ner-train - INFO - epoch [11/50]
+
+2023-08-18 18:01:18,744 - pytorch-ner-train - INFO - train loss: 0.01198696424016508
+2023-08-18 18:01:18,744 - pytorch-ner-train - INFO - train f1 B-LOC: 0.9940071232548134
+2023-08-18 18:01:18,745 - pytorch-ner-train - INFO - train f1 B-MISC: 0.989239471707886
+2023-08-18 18:01:18,745 - pytorch-ner-train - INFO - train f1 B-ORG: 0.9919933247489001
+2023-08-18 18:01:18,745 - pytorch-ner-train - INFO - train f1 B-PER: 0.9966409926854067
+2023-08-18 18:01:18,745 - pytorch-ner-train - INFO - train f1 I-LOC: 0.9923703805017015
+2023-08-18 18:01:18,745 - pytorch-ner-train - INFO - train f1 I-MISC: 0.9847882438544882
+2023-08-18 18:01:18,745 - pytorch-ner-train - INFO - train f1 I-ORG: 0.9938532180002188
+2023-08-18 18:01:18,745 - pytorch-ner-train - INFO - train f1 I-PER: 0.998430376691366
+2023-08-18 18:01:18,745 - pytorch-ner-train - INFO - train f1 O: 0.9996098762386668
+2023-08-18 18:01:18,745 - pytorch-ner-train - INFO - train f1-weighted: 0.9986604913151932
+2023-08-18 18:01:18,745 - pytorch-ner-train - INFO - 
+
+2023-08-18 18:01:27,387 - pytorch-ner-train - INFO - valid loss: 0.2566370082080431
+2023-08-18 18:01:27,388 - pytorch-ner-train - INFO - valid f1 B-LOC: 0.2985109775585966
+2023-08-18 18:01:27,388 - pytorch-ner-train - INFO - valid f1 B-MISC: 0.1427478870336013
+2023-08-18 18:01:27,388 - pytorch-ner-train - INFO - valid f1 B-ORG: 0.19427678141963853
+2023-08-18 18:01:27,388 - pytorch-ner-train - INFO - valid f1 B-PER: 0.2411772540093342
+2023-08-18 18:01:27,388 - pytorch-ner-train - INFO - valid f1 I-LOC: 0.04421356421356421
+2023-08-18 18:01:27,389 - pytorch-ner-train - INFO - valid f1 I-MISC: 0.04401399617085892
+2023-08-18 18:01:27,389 - pytorch-ner-train - INFO - valid f1 I-ORG: 0.0718430010510479
+2023-08-18 18:01:27,389 - pytorch-ner-train - INFO - valid f1 I-PER: 0.18004234443712278
+2023-08-18 18:01:27,389 - pytorch-ner-train - INFO - valid f1 O: 0.9434368549146709
+2023-08-18 18:01:27,389 - pytorch-ner-train - INFO - valid f1-weighted: 0.9275689456651908
+2023-08-18 18:01:27,389 - pytorch-ner-train - INFO - 
+
+2023-08-18 18:01:27,389 - pytorch-ner-train - INFO - epoch [12/50]
+
+2023-08-18 18:01:29,024 - pytorch-ner-train - INFO - train loss: 0.00783739475754358
+2023-08-18 18:01:29,024 - pytorch-ner-train - INFO - train f1 B-LOC: 0.9964595528587447
+2023-08-18 18:01:29,024 - pytorch-ner-train - INFO - train f1 B-MISC: 0.9950818267311103
+2023-08-18 18:01:29,024 - pytorch-ner-train - INFO - train f1 B-ORG: 0.9958361536710992
+2023-08-18 18:01:29,024 - pytorch-ner-train - INFO - train f1 B-PER: 0.9988202806769948
+2023-08-18 18:01:29,024 - pytorch-ner-train - INFO - train f1 I-LOC: 0.9956543118272673
+2023-08-18 18:01:29,024 - pytorch-ner-train - INFO - train f1 I-MISC: 0.9911586562177429
+2023-08-18 18:01:29,024 - pytorch-ner-train - INFO - train f1 I-ORG: 0.9967561149048011
+2023-08-18 18:01:29,024 - pytorch-ner-train - INFO - train f1 I-PER: 0.999375756274905
+2023-08-18 18:01:29,024 - pytorch-ner-train - INFO - train f1 O: 0.999824395714208
+2023-08-18 18:01:29,024 - pytorch-ner-train - INFO - train f1-weighted: 0.9993386059673969
+2023-08-18 18:01:29,024 - pytorch-ner-train - INFO - 
+
+2023-08-18 18:01:37,731 - pytorch-ner-train - INFO - valid loss: 0.28481165290435595
+2023-08-18 18:01:37,731 - pytorch-ner-train - INFO - valid f1 B-LOC: 0.2956822190155523
+2023-08-18 18:01:37,732 - pytorch-ner-train - INFO - valid f1 B-MISC: 0.14073043358757645
+2023-08-18 18:01:37,732 - pytorch-ner-train - INFO - valid f1 B-ORG: 0.19751378972158193
+2023-08-18 18:01:37,732 - pytorch-ner-train - INFO - valid f1 B-PER: 0.23446022730107274
+2023-08-18 18:01:37,732 - pytorch-ner-train - INFO - valid f1 I-LOC: 0.04296296296296297
+2023-08-18 18:01:37,733 - pytorch-ner-train - INFO - valid f1 I-MISC: 0.04096360429693762
+2023-08-18 18:01:37,733 - pytorch-ner-train - INFO - valid f1 I-ORG: 0.07270703200165894
+2023-08-18 18:01:37,733 - pytorch-ner-train - INFO - valid f1 I-PER: 0.17285570610245934
+2023-08-18 18:01:37,734 - pytorch-ner-train - INFO - valid f1 O: 0.9377867264465548
+2023-08-18 18:01:37,734 - pytorch-ner-train - INFO - valid f1-weighted: 0.9224614670371746
+2023-08-18 18:01:37,734 - pytorch-ner-train - INFO - 
+
+2023-08-18 18:01:37,734 - pytorch-ner-train - INFO - epoch [13/50]
+
+2023-08-18 18:01:39,361 - pytorch-ner-train - INFO - train loss: 0.005618384471005302
+2023-08-18 18:01:39,362 - pytorch-ner-train - INFO - train f1 B-LOC: 0.9972627059133726
+2023-08-18 18:01:39,362 - pytorch-ner-train - INFO - train f1 B-MISC: 0.9969933667191
+2023-08-18 18:01:39,362 - pytorch-ner-train - INFO - train f1 B-ORG: 0.9968570870816971
+2023-08-18 18:01:39,362 - pytorch-ner-train - INFO - train f1 B-PER: 0.9993174006547744
+2023-08-18 18:01:39,362 - pytorch-ner-train - INFO - train f1 I-LOC: 0.9972749693339945
+2023-08-18 18:01:39,362 - pytorch-ner-train - INFO - train f1 I-MISC: 0.9926244556595017
+2023-08-18 18:01:39,362 - pytorch-ner-train - INFO - train f1 I-ORG: 0.996513111758749
+2023-08-18 18:01:39,362 - pytorch-ner-train - INFO - train f1 I-PER: 0.9996848722382893
+2023-08-18 18:01:39,362 - pytorch-ner-train - INFO - train f1 O: 0.9998782081782689
+2023-08-18 18:01:39,362 - pytorch-ner-train - INFO - train f1-weighted: 0.9995126473693988
+2023-08-18 18:01:39,362 - pytorch-ner-train - INFO - 
+
+2023-08-18 18:01:48,086 - pytorch-ner-train - INFO - valid loss: 0.2776608932611509
+2023-08-18 18:01:48,086 - pytorch-ner-train - INFO - valid f1 B-LOC: 0.3035555097459859
+2023-08-18 18:01:48,087 - pytorch-ner-train - INFO - valid f1 B-MISC: 0.14675416294463914
+2023-08-18 18:01:48,087 - pytorch-ner-train - INFO - valid f1 B-ORG: 0.19679097718058755
+2023-08-18 18:01:48,087 - pytorch-ner-train - INFO - valid f1 B-PER: 0.24364328611947658
+2023-08-18 18:01:48,087 - pytorch-ner-train - INFO - valid f1 I-LOC: 0.04382876382876383
+2023-08-18 18:01:48,087 - pytorch-ner-train - INFO - valid f1 I-MISC: 0.04315781531467805
+2023-08-18 18:01:48,087 - pytorch-ner-train - INFO - valid f1 I-ORG: 0.07300321329351123
+2023-08-18 18:01:48,088 - pytorch-ner-train - INFO - valid f1 I-PER: 0.17826106227042415
+2023-08-18 18:01:48,088 - pytorch-ner-train - INFO - valid f1 O: 0.9389224420976939
+2023-08-18 18:01:48,088 - pytorch-ner-train - INFO - valid f1-weighted: 0.926076435054624
+2023-08-18 18:01:48,088 - pytorch-ner-train - INFO - 
+
+2023-08-18 18:01:48,088 - pytorch-ner-train - INFO - epoch [14/50]
+
+2023-08-18 18:01:49,715 - pytorch-ner-train - INFO - train loss: 0.004246598101710364
+2023-08-18 18:01:49,716 - pytorch-ner-train - INFO - train f1 B-LOC: 0.9983208377228878
+2023-08-18 18:01:49,716 - pytorch-ner-train - INFO - train f1 B-MISC: 0.9979922179057867
+2023-08-18 18:01:49,716 - pytorch-ner-train - INFO - train f1 B-ORG: 0.9980725636710905
+2023-08-18 18:01:49,716 - pytorch-ner-train - INFO - train f1 B-PER: 0.9995930206714271
+2023-08-18 18:01:49,716 - pytorch-ner-train - INFO - train f1 I-LOC: 0.9979744025870927
+2023-08-18 18:01:49,716 - pytorch-ner-train - INFO - train f1 I-MISC: 0.9964942233037416
+2023-08-18 18:01:49,716 - pytorch-ner-train - INFO - train f1 I-ORG: 0.9979717119421505
+2023-08-18 18:01:49,716 - pytorch-ner-train - INFO - train f1 I-PER: 0.9999130812690136
+2023-08-18 18:01:49,716 - pytorch-ner-train - INFO - train f1 O: 0.9999042396717784
+2023-08-18 18:01:49,716 - pytorch-ner-train - INFO - train f1-weighted: 0.9996830004574276
+2023-08-18 18:01:49,716 - pytorch-ner-train - INFO - 
+
+2023-08-18 18:01:58,425 - pytorch-ner-train - INFO - valid loss: 0.2954046774786312
+2023-08-18 18:01:58,426 - pytorch-ner-train - INFO - valid f1 B-LOC: 0.30150713484046815
+2023-08-18 18:01:58,426 - pytorch-ner-train - INFO - valid f1 B-MISC: 0.14171808790856408
+2023-08-18 18:01:58,426 - pytorch-ner-train - INFO - valid f1 B-ORG: 0.19568804932441297
+2023-08-18 18:01:58,426 - pytorch-ner-train - INFO - valid f1 B-PER: 0.23827689095883647
+2023-08-18 18:01:58,426 - pytorch-ner-train - INFO - valid f1 I-LOC: 0.044598364598364595
+2023-08-18 18:01:58,427 - pytorch-ner-train - INFO - valid f1 I-MISC: 0.04192560525893859
+2023-08-18 18:01:58,427 - pytorch-ner-train - INFO - valid f1 I-ORG: 0.07246259309921138
+2023-08-18 18:01:58,427 - pytorch-ner-train - INFO - valid f1 I-PER: 0.17406326210148404
+2023-08-18 18:01:58,427 - pytorch-ner-train - INFO - valid f1 O: 0.9372888650754234
+2023-08-18 18:01:58,427 - pytorch-ner-train - INFO - valid f1-weighted: 0.9234817910132226
+2023-08-18 18:01:58,427 - pytorch-ner-train - INFO - 
+
+2023-08-18 18:01:58,427 - pytorch-ner-train - INFO - epoch [15/50]
+
+2023-08-18 18:02:00,051 - pytorch-ner-train - INFO - train loss: 0.0031975887033109697
+2023-08-18 18:02:00,051 - pytorch-ner-train - INFO - train f1 B-LOC: 0.9986801053041138
+2023-08-18 18:02:00,051 - pytorch-ner-train - INFO - train f1 B-MISC: 0.9987108627922601
+2023-08-18 18:02:00,051 - pytorch-ner-train - INFO - train f1 B-ORG: 0.9987803440968962
+2023-08-18 18:02:00,051 - pytorch-ner-train - INFO - train f1 B-PER: 0.9998340087253675
+2023-08-18 18:02:00,051 - pytorch-ner-train - INFO - train f1 I-LOC: 0.997228359393477
+2023-08-18 18:02:00,052 - pytorch-ner-train - INFO - train f1 I-MISC: 0.9978274824592427
+2023-08-18 18:02:00,052 - pytorch-ner-train - INFO - train f1 I-ORG: 0.9981523376808562
+2023-08-18 18:02:00,052 - pytorch-ner-train - INFO - train f1 I-PER: 1.0
+2023-08-18 18:02:00,052 - pytorch-ner-train - INFO - train f1 O: 0.9999282164566506
+2023-08-18 18:02:00,052 - pytorch-ner-train - INFO - train f1-weighted: 0.9997715551263209
+2023-08-18 18:02:00,052 - pytorch-ner-train - INFO - 
+
+2023-08-18 18:02:08,783 - pytorch-ner-train - INFO - valid loss: 0.3053183155379851
+2023-08-18 18:02:08,783 - pytorch-ner-train - INFO - valid f1 B-LOC: 0.2972340181863991
+2023-08-18 18:02:08,784 - pytorch-ner-train - INFO - valid f1 B-MISC: 0.14141345427059715
+2023-08-18 18:02:08,784 - pytorch-ner-train - INFO - valid f1 B-ORG: 0.19705277887096068
+2023-08-18 18:02:08,784 - pytorch-ner-train - INFO - valid f1 B-PER: 0.23849598680563794
+2023-08-18 18:02:08,784 - pytorch-ner-train - INFO - valid f1 I-LOC: 0.04373256373256373
+2023-08-18 18:02:08,784 - pytorch-ner-train - INFO - valid f1 I-MISC: 0.041839025172358504
+2023-08-18 18:02:08,785 - pytorch-ner-train - INFO - valid f1 I-ORG: 0.07345828812088041
+2023-08-18 18:02:08,785 - pytorch-ner-train - INFO - valid f1 I-PER: 0.17429551661945283
+2023-08-18 18:02:08,785 - pytorch-ner-train - INFO - valid f1 O: 0.9370372389866762
+2023-08-18 18:02:08,785 - pytorch-ner-train - INFO - valid f1-weighted: 0.9228751760927614
+2023-08-18 18:02:08,785 - pytorch-ner-train - INFO - 
+
+2023-08-18 18:02:08,785 - pytorch-ner-train - INFO - epoch [16/50]
+
+2023-08-18 18:02:10,422 - pytorch-ner-train - INFO - train loss: 0.002489003266002667
+2023-08-18 18:02:10,422 - pytorch-ner-train - INFO - train f1 B-LOC: 0.9991076873055631
+2023-08-18 18:02:10,422 - pytorch-ner-train - INFO - train f1 B-MISC: 0.9993230373644939
+2023-08-18 18:02:10,422 - pytorch-ner-train - INFO - train f1 B-ORG: 0.998935684109001
+2023-08-18 18:02:10,422 - pytorch-ner-train - INFO - train f1 B-PER: 0.9999112609814534
+2023-08-18 18:02:10,422 - pytorch-ner-train - INFO - train f1 I-LOC: 0.9992221194651639
+2023-08-18 18:02:10,422 - pytorch-ner-train - INFO - train f1 I-MISC: 0.9983391914429935
+2023-08-18 18:02:10,423 - pytorch-ner-train - INFO - train f1 I-ORG: 0.998555414502677
+2023-08-18 18:02:10,423 - pytorch-ner-train - INFO - train f1 I-PER: 1.0
+2023-08-18 18:02:10,423 - pytorch-ner-train - INFO - train f1 O: 0.9999254289436034
+2023-08-18 18:02:10,423 - pytorch-ner-train - INFO - train f1-weighted: 0.9998174108797528
+2023-08-18 18:02:10,423 - pytorch-ner-train - INFO - 
+
+2023-08-18 18:02:19,246 - pytorch-ner-train - INFO - valid loss: 0.3128499781756018
+2023-08-18 18:02:19,246 - pytorch-ner-train - INFO - valid f1 B-LOC: 0.2975583499393023
+2023-08-18 18:02:19,247 - pytorch-ner-train - INFO - valid f1 B-MISC: 0.14050596669644289
+2023-08-18 18:02:19,247 - pytorch-ner-train - INFO - valid f1 B-ORG: 0.19715510079146442
+2023-08-18 18:02:19,247 - pytorch-ner-train - INFO - valid f1 B-PER: 0.23846289291540118
+2023-08-18 18:02:19,247 - pytorch-ner-train - INFO - valid f1 I-LOC: 0.04421356421356421
+2023-08-18 18:02:19,247 - pytorch-ner-train - INFO - valid f1 I-MISC: 0.041464693621556366
+2023-08-18 18:02:19,247 - pytorch-ner-train - INFO - valid f1 I-ORG: 0.07168564517940632
+2023-08-18 18:02:19,248 - pytorch-ner-train - INFO - valid f1 I-PER: 0.17525797567715
+2023-08-18 18:02:19,248 - pytorch-ner-train - INFO - valid f1 O: 0.935630770462912
+2023-08-18 18:02:19,248 - pytorch-ner-train - INFO - valid f1-weighted: 0.9221194436014086
+2023-08-18 18:02:19,248 - pytorch-ner-train - INFO - 
+
+2023-08-18 18:02:19,248 - pytorch-ner-train - INFO - epoch [17/50]
+
+2023-08-18 18:02:20,888 - pytorch-ner-train - INFO - train loss: 0.0020612558227632257
+2023-08-18 18:02:20,888 - pytorch-ner-train - INFO - train f1 B-LOC: 0.9992787254121972
+2023-08-18 18:02:20,888 - pytorch-ner-train - INFO - train f1 B-MISC: 0.9995192338703173
+2023-08-18 18:02:20,888 - pytorch-ner-train - INFO - train f1 B-ORG: 0.9993739324465237
+2023-08-18 18:02:20,888 - pytorch-ner-train - INFO - train f1 B-PER: 1.0
+2023-08-18 18:02:20,888 - pytorch-ner-train - INFO - train f1 I-LOC: 0.9991477484579574
+2023-08-18 18:02:20,888 - pytorch-ner-train - INFO - train f1 I-MISC: 0.9982098921703609
+2023-08-18 18:02:20,888 - pytorch-ner-train - INFO - train f1 I-ORG: 0.9987468763911344
+2023-08-18 18:02:20,888 - pytorch-ner-train - INFO - train f1 I-PER: 1.0
+2023-08-18 18:02:20,888 - pytorch-ner-train - INFO - train f1 O: 0.9999442077668392
+2023-08-18 18:02:20,888 - pytorch-ner-train - INFO - train f1-weighted: 0.9998591063419648
+2023-08-18 18:02:20,888 - pytorch-ner-train - INFO - 
+
+2023-08-18 18:02:29,604 - pytorch-ner-train - INFO - valid loss: 0.31981372460961316
+2023-08-18 18:02:29,605 - pytorch-ner-train - INFO - valid f1 B-LOC: 0.2961714652190843
+2023-08-18 18:02:29,605 - pytorch-ner-train - INFO - valid f1 B-MISC: 0.14049634668682287
+2023-08-18 18:02:29,605 - pytorch-ner-train - INFO - valid f1 B-ORG: 0.19653098705046754
+2023-08-18 18:02:29,605 - pytorch-ner-train - INFO - valid f1 B-PER: 0.23488384022624123
+2023-08-18 18:02:29,605 - pytorch-ner-train - INFO - valid f1 I-LOC: 0.04323232323232323
+2023-08-18 18:02:29,606 - pytorch-ner-train - INFO - valid f1 I-MISC: 0.04174282507615841
+2023-08-18 18:02:29,606 - pytorch-ner-train - INFO - valid f1 I-ORG: 0.07345763343598842
+2023-08-18 18:02:29,606 - pytorch-ner-train - INFO - valid f1 I-PER: 0.1747425971964036
+2023-08-18 18:02:29,606 - pytorch-ner-train - INFO - valid f1 O: 0.9339228023958669
+2023-08-18 18:02:29,606 - pytorch-ner-train - INFO - valid f1-weighted: 0.9209322511448511
+2023-08-18 18:02:29,606 - pytorch-ner-train - INFO - 
+
+2023-08-18 18:02:29,606 - pytorch-ner-train - INFO - epoch [18/50]
+
+2023-08-18 18:02:31,233 - pytorch-ner-train - INFO - train loss: 0.0017090453213806879
+2023-08-18 18:02:31,233 - pytorch-ner-train - INFO - train f1 B-LOC: 0.9992954332646069
+2023-08-18 18:02:31,233 - pytorch-ner-train - INFO - train f1 B-MISC: 0.9997264664651195
+2023-08-18 18:02:31,233 - pytorch-ner-train - INFO - train f1 B-ORG: 0.9994698978185556
+2023-08-18 18:02:31,233 - pytorch-ner-train - INFO - train f1 B-PER: 1.0
+2023-08-18 18:02:31,233 - pytorch-ner-train - INFO - train f1 I-LOC: 0.9995157384987894
+2023-08-18 18:02:31,233 - pytorch-ner-train - INFO - train f1 I-MISC: 0.9990590868055997
+2023-08-18 18:02:31,233 - pytorch-ner-train - INFO - train f1 I-ORG: 0.9992444175142806
+2023-08-18 18:02:31,233 - pytorch-ner-train - INFO - train f1 I-PER: 1.0
+2023-08-18 18:02:31,233 - pytorch-ner-train - INFO - train f1 O: 0.9999592118941488
+2023-08-18 18:02:31,233 - pytorch-ner-train - INFO - train f1-weighted: 0.9998985507387449
+2023-08-18 18:02:31,234 - pytorch-ner-train - INFO - 
+
+2023-08-18 18:02:39,947 - pytorch-ner-train - INFO - valid loss: 0.32520337519984627
+2023-08-18 18:02:39,948 - pytorch-ner-train - INFO - valid f1 B-LOC: 0.2971602647793124
+2023-08-18 18:02:39,948 - pytorch-ner-train - INFO - valid f1 B-MISC: 0.14069836688884307
+2023-08-18 18:02:39,948 - pytorch-ner-train - INFO - valid f1 B-ORG: 0.19686631310007935
+2023-08-18 18:02:39,948 - pytorch-ner-train - INFO - valid f1 B-PER: 0.23620164485989478
+2023-08-18 18:02:39,948 - pytorch-ner-train - INFO - valid f1 I-LOC: 0.04421356421356421
+2023-08-18 18:02:39,949 - pytorch-ner-train - INFO - valid f1 I-MISC: 0.04174282507615841
+2023-08-18 18:02:39,949 - pytorch-ner-train - INFO - valid f1 I-ORG: 0.07366286030788195
+2023-08-18 18:02:39,949 - pytorch-ner-train - INFO - valid f1 I-PER: 0.17567369752144327
+2023-08-18 18:02:39,949 - pytorch-ner-train - INFO - valid f1 O: 0.9340909758294154
+2023-08-18 18:02:39,949 - pytorch-ner-train - INFO - valid f1-weighted: 0.9212713053456301
+2023-08-18 18:02:39,949 - pytorch-ner-train - INFO - 
+
+2023-08-18 18:02:39,949 - pytorch-ner-train - INFO - epoch [19/50]
+
+2023-08-18 18:02:41,592 - pytorch-ner-train - INFO - train loss: 0.0014907255891110686
+2023-08-18 18:02:41,592 - pytorch-ner-train - INFO - train f1 B-LOC: 0.9993612428748078
+2023-08-18 18:02:41,592 - pytorch-ner-train - INFO - train f1 B-MISC: 0.9997085896833463
+2023-08-18 18:02:41,593 - pytorch-ner-train - INFO - train f1 B-ORG: 0.9995107795352225
+2023-08-18 18:02:41,593 - pytorch-ner-train - INFO - train f1 B-PER: 1.0
+2023-08-18 18:02:41,593 - pytorch-ner-train - INFO - train f1 I-LOC: 0.999623352165725
+2023-08-18 18:02:41,593 - pytorch-ner-train - INFO - train f1 I-MISC: 0.9987987311597876
+2023-08-18 18:02:41,593 - pytorch-ner-train - INFO - train f1 I-ORG: 0.9990269110641722
+2023-08-18 18:02:41,593 - pytorch-ner-train - INFO - train f1 I-PER: 1.0
+2023-08-18 18:02:41,593 - pytorch-ner-train - INFO - train f1 O: 0.9999675793325513
+2023-08-18 18:02:41,593 - pytorch-ner-train - INFO - train f1-weighted: 0.9999061800203799
+2023-08-18 18:02:41,593 - pytorch-ner-train - INFO - 
+
+2023-08-18 18:02:50,330 - pytorch-ner-train - INFO - valid loss: 0.33048138468172367
+2023-08-18 18:02:50,330 - pytorch-ner-train - INFO - valid f1 B-LOC: 0.2959433335623812
+2023-08-18 18:02:50,330 - pytorch-ner-train - INFO - valid f1 B-MISC: 0.140640646831123
+2023-08-18 18:02:50,330 - pytorch-ner-train - INFO - valid f1 B-ORG: 0.19679022756944833
+2023-08-18 18:02:50,330 - pytorch-ner-train - INFO - valid f1 B-PER: 0.23695975237273495
+2023-08-18 18:02:50,330 - pytorch-ner-train - INFO - valid f1 I-LOC: 0.04402116402116401
+2023-08-18 18:02:50,331 - pytorch-ner-train - INFO - valid f1 I-MISC: 0.041839025172358504
+2023-08-18 18:02:50,331 - pytorch-ner-train - INFO - valid f1 I-ORG: 0.07303798531962526
+2023-08-18 18:02:50,331 - pytorch-ner-train - INFO - valid f1 I-PER: 0.17455981701362336
+2023-08-18 18:02:50,331 - pytorch-ner-train - INFO - valid f1 O: 0.9338136621729413
+2023-08-18 18:02:50,331 - pytorch-ner-train - INFO - valid f1-weighted: 0.9212006735659216
+2023-08-18 18:02:50,331 - pytorch-ner-train - INFO - 
+
+2023-08-18 18:02:50,331 - pytorch-ner-train - INFO - epoch [20/50]
+
+2023-08-18 18:02:51,969 - pytorch-ner-train - INFO - train loss: 0.0013102806702066782
+2023-08-18 18:02:51,970 - pytorch-ner-train - INFO - train f1 B-LOC: 0.9993878096554654
+2023-08-18 18:02:51,970 - pytorch-ner-train - INFO - train f1 B-MISC: 0.9997159161526525
+2023-08-18 18:02:51,970 - pytorch-ner-train - INFO - train f1 B-ORG: 0.9996741285302847
+2023-08-18 18:02:51,970 - pytorch-ner-train - INFO - train f1 B-PER: 1.0
+2023-08-18 18:02:51,970 - pytorch-ner-train - INFO - train f1 I-LOC: 0.9993220338983051
+2023-08-18 18:02:51,970 - pytorch-ner-train - INFO - train f1 I-MISC: 0.999278759466282
+2023-08-18 18:02:51,970 - pytorch-ner-train - INFO - train f1 I-ORG: 0.999261167752059
+2023-08-18 18:02:51,970 - pytorch-ner-train - INFO - train f1 I-PER: 1.0
+2023-08-18 18:02:51,970 - pytorch-ner-train - INFO - train f1 O: 0.9999736725112565
+2023-08-18 18:02:51,970 - pytorch-ner-train - INFO - train f1-weighted: 0.9999217821398647
+2023-08-18 18:02:51,970 - pytorch-ner-train - INFO - 
+
+2023-08-18 18:03:00,787 - pytorch-ner-train - INFO - valid loss: 0.33639910681553714
+2023-08-18 18:03:00,787 - pytorch-ner-train - INFO - valid f1 B-LOC: 0.29538537300442064
+2023-08-18 18:03:00,788 - pytorch-ner-train - INFO - valid f1 B-MISC: 0.14045786664834284
+2023-08-18 18:03:00,788 - pytorch-ner-train - INFO - valid f1 B-ORG: 0.1977637225689174
+2023-08-18 18:03:00,788 - pytorch-ner-train - INFO - valid f1 B-PER: 0.23366775899267553
+2023-08-18 18:03:00,788 - pytorch-ner-train - INFO - valid f1 I-LOC: 0.04315536315536315
+2023-08-18 18:03:00,788 - pytorch-ner-train - INFO - valid f1 I-MISC: 0.04164662497995831
+2023-08-18 18:03:00,788 - pytorch-ner-train - INFO - valid f1 I-ORG: 0.07366881555193243
+2023-08-18 18:03:00,788 - pytorch-ner-train - INFO - valid f1 I-PER: 0.17377418289465593
+2023-08-18 18:03:00,789 - pytorch-ner-train - INFO - valid f1 O: 0.9335327775519496
+2023-08-18 18:03:00,789 - pytorch-ner-train - INFO - valid f1-weighted: 0.9206879008841954
+2023-08-18 18:03:00,789 - pytorch-ner-train - INFO - 
+
+2023-08-18 18:03:00,789 - pytorch-ner-train - INFO - epoch [21/50]
+
+2023-08-18 18:03:02,421 - pytorch-ner-train - INFO - train loss: 0.0011778010678935354
+2023-08-18 18:03:02,421 - pytorch-ner-train - INFO - train f1 B-LOC: 0.9994487263239659
+2023-08-18 18:03:02,421 - pytorch-ner-train - INFO - train f1 B-MISC: 0.9996958836248003
+2023-08-18 18:03:02,421 - pytorch-ner-train - INFO - train f1 B-ORG: 0.9996967649562349
+2023-08-18 18:03:02,421 - pytorch-ner-train - INFO - train f1 B-PER: 1.0
+2023-08-18 18:03:02,421 - pytorch-ner-train - INFO - train f1 I-LOC: 0.99921614466944
+2023-08-18 18:03:02,421 - pytorch-ner-train - INFO - train f1 I-MISC: 0.9990838295923041
+2023-08-18 18:03:02,421 - pytorch-ner-train - INFO - train f1 I-ORG: 0.9993609787409925
+2023-08-18 18:03:02,421 - pytorch-ner-train - INFO - train f1 I-PER: 1.0
+2023-08-18 18:03:02,421 - pytorch-ner-train - INFO - train f1 O: 0.9999791126363552
+2023-08-18 18:03:02,422 - pytorch-ner-train - INFO - train f1-weighted: 0.9999262072163557
+2023-08-18 18:03:02,422 - pytorch-ner-train - INFO - 
+
+2023-08-18 18:03:11,231 - pytorch-ner-train - INFO - valid loss: 0.33916115854403284
+2023-08-18 18:03:11,232 - pytorch-ner-train - INFO - valid f1 B-LOC: 0.296098857051238
+2023-08-18 18:03:11,232 - pytorch-ner-train - INFO - valid f1 B-MISC: 0.13808172427220047
+2023-08-18 18:03:11,232 - pytorch-ner-train - INFO - valid f1 B-ORG: 0.1983594760218137
+2023-08-18 18:03:11,232 - pytorch-ner-train - INFO - valid f1 B-PER: 0.23641760572669215
+2023-08-18 18:03:11,232 - pytorch-ner-train - INFO - valid f1 I-LOC: 0.04392496392496392
+2023-08-18 18:03:11,232 - pytorch-ner-train - INFO - valid f1 I-MISC: 0.041300304633637965
+2023-08-18 18:03:11,233 - pytorch-ner-train - INFO - valid f1 I-ORG: 0.07351676942586034
+2023-08-18 18:03:11,233 - pytorch-ner-train - INFO - valid f1 I-PER: 0.17518832430879733
+2023-08-18 18:03:11,233 - pytorch-ner-train - INFO - valid f1 O: 0.9333177479235022
+2023-08-18 18:03:11,233 - pytorch-ner-train - INFO - valid f1-weighted: 0.9209438286173098
+2023-08-18 18:03:11,233 - pytorch-ner-train - INFO - 
+
+2023-08-18 18:03:11,233 - pytorch-ner-train - INFO - epoch [22/50]
+
+2023-08-18 18:03:12,878 - pytorch-ner-train - INFO - train loss: 0.001075033931124766
+2023-08-18 18:03:12,878 - pytorch-ner-train - INFO - train f1 B-LOC: 0.999460557059527
+2023-08-18 18:03:12,878 - pytorch-ner-train - INFO - train f1 B-MISC: 0.999507788925582
+2023-08-18 18:03:12,878 - pytorch-ner-train - INFO - train f1 B-ORG: 0.9995884241247481
+2023-08-18 18:03:12,878 - pytorch-ner-train - INFO - train f1 B-PER: 1.0
+2023-08-18 18:03:12,878 - pytorch-ner-train - INFO - train f1 I-LOC: 0.9996802046690119
+2023-08-18 18:03:12,878 - pytorch-ner-train - INFO - train f1 I-MISC: 0.999319766453149
+2023-08-18 18:03:12,878 - pytorch-ner-train - INFO - train f1 I-ORG: 0.9992262178555993
+2023-08-18 18:03:12,878 - pytorch-ner-train - INFO - train f1 I-PER: 1.0
+2023-08-18 18:03:12,878 - pytorch-ner-train - INFO - train f1 O: 0.9999758869369734
+2023-08-18 18:03:12,878 - pytorch-ner-train - INFO - train f1-weighted: 0.9999206320743436
+2023-08-18 18:03:12,878 - pytorch-ner-train - INFO - 
+
+2023-08-18 18:03:21,684 - pytorch-ner-train - INFO - valid loss: 0.33861428400464527
+2023-08-18 18:03:21,684 - pytorch-ner-train - INFO - valid f1 B-LOC: 0.2973382349572826
+2023-08-18 18:03:21,684 - pytorch-ner-train - INFO - valid f1 B-MISC: 0.1401115463020225
+2023-08-18 18:03:21,684 - pytorch-ner-train - INFO - valid f1 B-ORG: 0.19600188652136705
+2023-08-18 18:03:21,685 - pytorch-ner-train - INFO - valid f1 B-PER: 0.23728079702090174
+2023-08-18 18:03:21,685 - pytorch-ner-train - INFO - valid f1 I-LOC: 0.04459836459836459
+2023-08-18 18:03:21,685 - pytorch-ner-train - INFO - valid f1 I-MISC: 0.041839025172358504
+2023-08-18 18:03:21,685 - pytorch-ner-train - INFO - valid f1 I-ORG: 0.07264863643651523
+2023-08-18 18:03:21,685 - pytorch-ner-train - INFO - valid f1 I-PER: 0.1752477985378418
+2023-08-18 18:03:21,685 - pytorch-ner-train - INFO - valid f1 O: 0.9337784010044973
+2023-08-18 18:03:21,686 - pytorch-ner-train - INFO - valid f1-weighted: 0.9214905862332059
+2023-08-18 18:03:21,686 - pytorch-ner-train - INFO - 
+
+2023-08-18 18:03:21,686 - pytorch-ner-train - INFO - epoch [23/50]
+
+2023-08-18 18:03:23,329 - pytorch-ner-train - INFO - train loss: 0.000986213460406762
+2023-08-18 18:03:23,329 - pytorch-ner-train - INFO - train f1 B-LOC: 0.9994677859683619
+2023-08-18 18:03:23,329 - pytorch-ner-train - INFO - train f1 B-MISC: 0.9995461571459242
+2023-08-18 18:03:23,329 - pytorch-ner-train - INFO - train f1 B-ORG: 0.9996075050885389
+2023-08-18 18:03:23,329 - pytorch-ner-train - INFO - train f1 B-PER: 1.0
+2023-08-18 18:03:23,329 - pytorch-ner-train - INFO - train f1 I-LOC: 0.9996676636756399
+2023-08-18 18:03:23,329 - pytorch-ner-train - INFO - train f1 I-MISC: 0.998778818823034
+2023-08-18 18:03:23,329 - pytorch-ner-train - INFO - train f1 I-ORG: 0.9990948065514655
+2023-08-18 18:03:23,329 - pytorch-ner-train - INFO - train f1 I-PER: 1.0
+2023-08-18 18:03:23,329 - pytorch-ner-train - INFO - train f1 O: 0.9999748989828181
+2023-08-18 18:03:23,329 - pytorch-ner-train - INFO - train f1-weighted: 0.9999213359968454
+2023-08-18 18:03:23,330 - pytorch-ner-train - INFO - 
+
+2023-08-18 18:03:32,236 - pytorch-ner-train - INFO - valid loss: 0.3462423034552993
+2023-08-18 18:03:32,237 - pytorch-ner-train - INFO - valid f1 B-LOC: 0.297288989669942
+2023-08-18 18:03:32,237 - pytorch-ner-train - INFO - valid f1 B-MISC: 0.1402173664078426
+2023-08-18 18:03:32,237 - pytorch-ner-train - INFO - valid f1 B-ORG: 0.19753009376386
+2023-08-18 18:03:32,237 - pytorch-ner-train - INFO - valid f1 B-PER: 0.23547765039373852
+2023-08-18 18:03:32,237 - pytorch-ner-train - INFO - valid f1 I-LOC: 0.04392496392496392
+2023-08-18 18:03:32,238 - pytorch-ner-train - INFO - valid f1 I-MISC: 0.04164662497995831
+2023-08-18 18:03:32,238 - pytorch-ner-train - INFO - valid f1 I-ORG: 0.07337817465523093
+2023-08-18 18:03:32,238 - pytorch-ner-train - INFO - valid f1 I-PER: 0.17396383451287897
+2023-08-18 18:03:32,238 - pytorch-ner-train - INFO - valid f1 O: 0.9328287983968252
+2023-08-18 18:03:32,238 - pytorch-ner-train - INFO - valid f1-weighted: 0.9208207197658999
+2023-08-18 18:03:32,238 - pytorch-ner-train - INFO - 
+
+2023-08-18 18:03:32,238 - pytorch-ner-train - INFO - epoch [24/50]
+
+2023-08-18 18:03:33,888 - pytorch-ner-train - INFO - train loss: 0.0009357347084067257
+2023-08-18 18:03:33,888 - pytorch-ner-train - INFO - train f1 B-LOC: 0.9995298789721728
+2023-08-18 18:03:33,888 - pytorch-ner-train - INFO - train f1 B-MISC: 0.9997756677611146
+2023-08-18 18:03:33,888 - pytorch-ner-train - INFO - train f1 B-ORG: 0.9996833681677785
+2023-08-18 18:03:33,888 - pytorch-ner-train - INFO - train f1 B-PER: 1.0
+2023-08-18 18:03:33,888 - pytorch-ner-train - INFO - train f1 I-LOC: 0.9994863893168978
+2023-08-18 18:03:33,888 - pytorch-ner-train - INFO - train f1 I-MISC: 0.9989614136314461
+2023-08-18 18:03:33,888 - pytorch-ner-train - INFO - train f1 I-ORG: 0.999353834602877
+2023-08-18 18:03:33,888 - pytorch-ner-train - INFO - train f1 I-PER: 1.0
+2023-08-18 18:03:33,888 - pytorch-ner-train - INFO - train f1 O: 0.9999803075631432
+2023-08-18 18:03:33,888 - pytorch-ner-train - INFO - train f1-weighted: 0.9999338809149027
+2023-08-18 18:03:33,888 - pytorch-ner-train - INFO - 
+
+2023-08-18 18:03:42,835 - pytorch-ner-train - INFO - valid loss: 0.3488527729268236
+2023-08-18 18:03:42,835 - pytorch-ner-train - INFO - valid f1 B-LOC: 0.2956632080441604
+2023-08-18 18:03:42,835 - pytorch-ner-train - INFO - valid f1 B-MISC: 0.14087152706200326
+2023-08-18 18:03:42,836 - pytorch-ner-train - INFO - valid f1 B-ORG: 0.19714529337905962
+2023-08-18 18:03:42,836 - pytorch-ner-train - INFO - valid f1 B-PER: 0.2376649378398252
+2023-08-18 18:03:42,836 - pytorch-ner-train - INFO - valid f1 I-LOC: 0.04392496392496392
+2023-08-18 18:03:42,836 - pytorch-ner-train - INFO - valid f1 I-MISC: 0.04187750521083854
+2023-08-18 18:03:42,836 - pytorch-ner-train - INFO - valid f1 I-ORG: 0.07283453999904216
+2023-08-18 18:03:42,836 - pytorch-ner-train - INFO - valid f1 I-PER: 0.17535552923790698
+2023-08-18 18:03:42,837 - pytorch-ner-train - INFO - valid f1 O: 0.9333251104536516
+2023-08-18 18:03:42,837 - pytorch-ner-train - INFO - valid f1-weighted: 0.9211824872577448
+2023-08-18 18:03:42,837 - pytorch-ner-train - INFO - 
+
+2023-08-18 18:03:42,837 - pytorch-ner-train - INFO - epoch [25/50]
+
+2023-08-18 18:03:44,477 - pytorch-ner-train - INFO - train loss: 0.0008119251455724934
+2023-08-18 18:03:44,477 - pytorch-ner-train - INFO - train f1 B-LOC: 0.9994487032385008
+2023-08-18 18:03:44,478 - pytorch-ner-train - INFO - train f1 B-MISC: 0.999730541515319
+2023-08-18 18:03:44,478 - pytorch-ner-train - INFO - train f1 B-ORG: 0.9996143821883099
+2023-08-18 18:03:44,478 - pytorch-ner-train - INFO - train f1 B-PER: 1.0
+2023-08-18 18:03:44,478 - pytorch-ner-train - INFO - train f1 I-LOC: 0.9996058336618052
+2023-08-18 18:03:44,478 - pytorch-ner-train - INFO - train f1 I-MISC: 0.999181294529293
+2023-08-18 18:03:44,478 - pytorch-ner-train - INFO - train f1 I-ORG: 0.9993806954370156
+2023-08-18 18:03:44,478 - pytorch-ner-train - INFO - train f1 I-PER: 1.0
+2023-08-18 18:03:44,478 - pytorch-ner-train - INFO - train f1 O: 0.9999796787614873
+2023-08-18 18:03:44,478 - pytorch-ner-train - INFO - train f1-weighted: 0.9999278375642457
+2023-08-18 18:03:44,478 - pytorch-ner-train - INFO - 
+
+2023-08-18 18:03:53,172 - pytorch-ner-train - INFO - valid loss: 0.3536282433910954
+2023-08-18 18:03:53,172 - pytorch-ner-train - INFO - valid f1 B-LOC: 0.2975226184749994
+2023-08-18 18:03:53,172 - pytorch-ner-train - INFO - valid f1 B-MISC: 0.1404386266291028
+2023-08-18 18:03:53,173 - pytorch-ner-train - INFO - valid f1 B-ORG: 0.19549202601150653
+2023-08-18 18:03:53,173 - pytorch-ner-train - INFO - valid f1 B-PER: 0.2375647211538754
+2023-08-18 18:03:53,173 - pytorch-ner-train - INFO - valid f1 I-LOC: 0.04402116402116401
+2023-08-18 18:03:53,173 - pytorch-ner-train - INFO - valid f1 I-MISC: 0.04168510501843835
+2023-08-18 18:03:53,173 - pytorch-ner-train - INFO - valid f1 I-ORG: 0.07259537240056721
+2023-08-18 18:03:53,174 - pytorch-ner-train - INFO - valid f1 I-PER: 0.17445487326478729
+2023-08-18 18:03:53,174 - pytorch-ner-train - INFO - valid f1 O: 0.9328121944371865
+2023-08-18 18:03:53,174 - pytorch-ner-train - INFO - valid f1-weighted: 0.9208546936203339
+2023-08-18 18:03:53,174 - pytorch-ner-train - INFO - 
+
+2023-08-18 18:03:53,174 - pytorch-ner-train - INFO - epoch [26/50]
+
+2023-08-18 18:03:54,803 - pytorch-ner-train - INFO - train loss: 0.0007696203340902545
+2023-08-18 18:03:54,803 - pytorch-ner-train - INFO - train f1 B-LOC: 0.9995030127910002
+2023-08-18 18:03:54,803 - pytorch-ner-train - INFO - train f1 B-MISC: 0.9997048750787534
+2023-08-18 18:03:54,803 - pytorch-ner-train - INFO - train f1 B-ORG: 0.9997446578855058
+2023-08-18 18:03:54,803 - pytorch-ner-train - INFO - train f1 B-PER: 1.0
+2023-08-18 18:03:54,803 - pytorch-ner-train - INFO - train f1 I-LOC: 0.9996802046690119
+2023-08-18 18:03:54,803 - pytorch-ner-train - INFO - train f1 I-MISC: 0.9993151857558638
+2023-08-18 18:03:54,803 - pytorch-ner-train - INFO - train f1 I-ORG: 0.9994200330437971
+2023-08-18 18:03:54,803 - pytorch-ner-train - INFO - train f1 I-PER: 1.0
+2023-08-18 18:03:54,803 - pytorch-ner-train - INFO - train f1 O: 0.9999790008124493
+2023-08-18 18:03:54,803 - pytorch-ner-train - INFO - train f1-weighted: 0.9999353922949262
+2023-08-18 18:03:54,804 - pytorch-ner-train - INFO - 
+
+2023-08-18 18:04:03,515 - pytorch-ner-train - INFO - valid loss: 0.3543252117287176
+2023-08-18 18:04:03,515 - pytorch-ner-train - INFO - valid f1 B-LOC: 0.2956151079960604
+2023-08-18 18:04:03,515 - pytorch-ner-train - INFO - valid f1 B-MISC: 0.1407272269177031
+2023-08-18 18:04:03,515 - pytorch-ner-train - INFO - valid f1 B-ORG: 0.1966051985532505
+2023-08-18 18:04:03,515 - pytorch-ner-train - INFO - valid f1 B-PER: 0.23687724229022486
+2023-08-18 18:04:03,516 - pytorch-ner-train - INFO - valid f1 I-LOC: 0.04380952380952381
+2023-08-18 18:04:03,516 - pytorch-ner-train - INFO - valid f1 I-MISC: 0.041839025172358504
+2023-08-18 18:04:03,516 - pytorch-ner-train - INFO - valid f1 I-ORG: 0.07193675572463451
+2023-08-18 18:04:03,516 - pytorch-ner-train - INFO - valid f1 I-PER: 0.1752497091320869
+2023-08-18 18:04:03,516 - pytorch-ner-train - INFO - valid f1 O: 0.9335157219447305
+2023-08-18 18:04:03,517 - pytorch-ner-train - INFO - valid f1-weighted: 0.9210562892038409
+2023-08-18 18:04:03,517 - pytorch-ner-train - INFO - 
+
+2023-08-18 18:04:03,517 - pytorch-ner-train - INFO - epoch [27/50]
+
+2023-08-18 18:04:05,143 - pytorch-ner-train - INFO - train loss: 0.0007823557500190781
+2023-08-18 18:04:05,143 - pytorch-ner-train - INFO - train f1 B-LOC: 0.9992783144085906
+2023-08-18 18:04:05,143 - pytorch-ner-train - INFO - train f1 B-MISC: 0.999864406779661
+2023-08-18 18:04:05,143 - pytorch-ner-train - INFO - train f1 B-ORG: 0.9996881441007553
+2023-08-18 18:04:05,143 - pytorch-ner-train - INFO - train f1 B-PER: 1.0
+2023-08-18 18:04:05,143 - pytorch-ner-train - INFO - train f1 I-LOC: 0.9992993322636473
+2023-08-18 18:04:05,143 - pytorch-ner-train - INFO - train f1 I-MISC: 0.9995654063450674
+2023-08-18 18:04:05,144 - pytorch-ner-train - INFO - train f1 I-ORG: 0.999417937089666
+2023-08-18 18:04:05,144 - pytorch-ner-train - INFO - train f1 I-PER: 1.0
+2023-08-18 18:04:05,144 - pytorch-ner-train - INFO - train f1 O: 0.9999731657860728
+2023-08-18 18:04:05,144 - pytorch-ner-train - INFO - train f1-weighted: 0.9999215266273445
+2023-08-18 18:04:05,144 - pytorch-ner-train - INFO - 
+
+2023-08-18 18:04:13,843 - pytorch-ner-train - INFO - valid loss: 0.3577967203143864
+2023-08-18 18:04:13,843 - pytorch-ner-train - INFO - valid f1 B-LOC: 0.2963654687464211
+2023-08-18 18:04:13,843 - pytorch-ner-train - INFO - valid f1 B-MISC: 0.14024622643670262
+2023-08-18 18:04:13,843 - pytorch-ner-train - INFO - valid f1 B-ORG: 0.19699961894767087
+2023-08-18 18:04:13,843 - pytorch-ner-train - INFO - valid f1 B-PER: 0.2372306064324089
+2023-08-18 18:04:13,844 - pytorch-ner-train - INFO - valid f1 I-LOC: 0.04380952380952381
+2023-08-18 18:04:13,844 - pytorch-ner-train - INFO - valid f1 I-MISC: 0.04187750521083854
+2023-08-18 18:04:13,844 - pytorch-ner-train - INFO - valid f1 I-ORG: 0.0729389858177737
+2023-08-18 18:04:13,844 - pytorch-ner-train - INFO - valid f1 I-PER: 0.17534911589816035
+2023-08-18 18:04:13,844 - pytorch-ner-train - INFO - valid f1 O: 0.9326505730477334
+2023-08-18 18:04:13,844 - pytorch-ner-train - INFO - valid f1-weighted: 0.9207900551057088
+2023-08-18 18:04:13,844 - pytorch-ner-train - INFO - 
+
+2023-08-18 18:04:13,844 - pytorch-ner-train - INFO - epoch [28/50]
+
+2023-08-18 18:04:15,495 - pytorch-ner-train - INFO - train loss: 0.0006831865570255381
+2023-08-18 18:04:15,495 - pytorch-ner-train - INFO - train f1 B-LOC: 0.999546976254238
+2023-08-18 18:04:15,496 - pytorch-ner-train - INFO - train f1 B-MISC: 0.9998892212252132
+2023-08-18 18:04:15,496 - pytorch-ner-train - INFO - train f1 B-ORG: 0.9997733865387429
+2023-08-18 18:04:15,496 - pytorch-ner-train - INFO - train f1 B-PER: 1.0
+2023-08-18 18:04:15,496 - pytorch-ner-train - INFO - train f1 I-LOC: 0.9995866060355519
+2023-08-18 18:04:15,496 - pytorch-ner-train - INFO - train f1 I-MISC: 0.9996802046690119
+2023-08-18 18:04:15,496 - pytorch-ner-train - INFO - train f1 I-ORG: 0.9995629835232978
+2023-08-18 18:04:15,496 - pytorch-ner-train - INFO - train f1 I-PER: 1.0
+2023-08-18 18:04:15,496 - pytorch-ner-train - INFO - train f1 O: 0.9999846429252347
+2023-08-18 18:04:15,496 - pytorch-ner-train - INFO - train f1-weighted: 0.9999500469509516
+2023-08-18 18:04:15,496 - pytorch-ner-train - INFO - 
+
+2023-08-18 18:04:24,218 - pytorch-ner-train - INFO - valid loss: 0.3624605404422101
+2023-08-18 18:04:24,219 - pytorch-ner-train - INFO - valid f1 B-LOC: 0.29458576696671934
+2023-08-18 18:04:24,219 - pytorch-ner-train - INFO - valid f1 B-MISC: 0.1394381456286218
+2023-08-18 18:04:24,219 - pytorch-ner-train - INFO - valid f1 B-ORG: 0.19636469831275022
+2023-08-18 18:04:24,219 - pytorch-ner-train - INFO - valid f1 B-PER: 0.23688782138983086
+2023-08-18 18:04:24,219 - pytorch-ner-train - INFO - valid f1 I-LOC: 0.04323232323232323
+2023-08-18 18:04:24,220 - pytorch-ner-train - INFO - valid f1 I-MISC: 0.04139650472983806
+2023-08-18 18:04:24,220 - pytorch-ner-train - INFO - valid f1 I-ORG: 0.07222775060437399
+2023-08-18 18:04:24,220 - pytorch-ner-train - INFO - valid f1 I-PER: 0.17542328756653489
+2023-08-18 18:04:24,221 - pytorch-ner-train - INFO - valid f1 O: 0.9326544372958279
+2023-08-18 18:04:24,221 - pytorch-ner-train - INFO - valid f1-weighted: 0.9202999480513141
+2023-08-18 18:04:24,221 - pytorch-ner-train - INFO - 
+
+2023-08-18 18:04:24,221 - pytorch-ner-train - INFO - epoch [29/50]
+
+2023-08-18 18:04:25,868 - pytorch-ner-train - INFO - train loss: 0.0006278098533245719
+2023-08-18 18:04:25,869 - pytorch-ner-train - INFO - train f1 B-LOC: 0.9994596069848666
+2023-08-18 18:04:25,869 - pytorch-ner-train - INFO - train f1 B-MISC: 0.9997577580158306
+2023-08-18 18:04:25,869 - pytorch-ner-train - INFO - train f1 B-ORG: 0.9996781521277112
+2023-08-18 18:04:25,869 - pytorch-ner-train - INFO - train f1 B-PER: 1.0
+2023-08-18 18:04:25,869 - pytorch-ner-train - INFO - train f1 I-LOC: 0.9995654063450674
+2023-08-18 18:04:25,869 - pytorch-ner-train - INFO - train f1 I-MISC: 0.9992784396256906
+2023-08-18 18:04:25,869 - pytorch-ner-train - INFO - train f1 I-ORG: 0.9994569775834677
+2023-08-18 18:04:25,869 - pytorch-ner-train - INFO - train f1 I-PER: 1.0
+2023-08-18 18:04:25,869 - pytorch-ner-train - INFO - train f1 O: 0.9999792135339927
+2023-08-18 18:04:25,869 - pytorch-ner-train - INFO - train f1-weighted: 0.999932248361523
+2023-08-18 18:04:25,869 - pytorch-ner-train - INFO - 
+
+2023-08-18 18:04:34,609 - pytorch-ner-train - INFO - valid loss: 0.36536521783301223
+2023-08-18 18:04:34,609 - pytorch-ner-train - INFO - valid f1 B-LOC: 0.2958540049016239
+2023-08-18 18:04:34,610 - pytorch-ner-train - INFO - valid f1 B-MISC: 0.13971712590760207
+2023-08-18 18:04:34,610 - pytorch-ner-train - INFO - valid f1 B-ORG: 0.19543018309252075
+2023-08-18 18:04:34,610 - pytorch-ner-train - INFO - valid f1 B-PER: 0.2343738126834638
+2023-08-18 18:04:34,610 - pytorch-ner-train - INFO - valid f1 I-LOC: 0.04323232323232323
+2023-08-18 18:04:34,610 - pytorch-ner-train - INFO - valid f1 I-MISC: 0.04164662497995831
+2023-08-18 18:04:34,610 - pytorch-ner-train - INFO - valid f1 I-ORG: 0.07235778731449727
+2023-08-18 18:04:34,611 - pytorch-ner-train - INFO - valid f1 I-PER: 0.17420933397162894
+2023-08-18 18:04:34,611 - pytorch-ner-train - INFO - valid f1 O: 0.9327863128806478
+2023-08-18 18:04:34,611 - pytorch-ner-train - INFO - valid f1-weighted: 0.9204306745516704
+2023-08-18 18:04:34,611 - pytorch-ner-train - INFO - 
+
+2023-08-18 18:04:34,611 - pytorch-ner-train - INFO - epoch [30/50]
+
+2023-08-18 18:04:36,262 - pytorch-ner-train - INFO - train loss: 0.0005896269798602404
+2023-08-18 18:04:36,262 - pytorch-ner-train - INFO - train f1 B-LOC: 0.9994537999181706
+2023-08-18 18:04:36,262 - pytorch-ner-train - INFO - train f1 B-MISC: 0.9998814744577457
+2023-08-18 18:04:36,262 - pytorch-ner-train - INFO - train f1 B-ORG: 0.9997568200194394
+2023-08-18 18:04:36,262 - pytorch-ner-train - INFO - train f1 B-PER: 1.0
+2023-08-18 18:04:36,262 - pytorch-ner-train - INFO - train f1 I-LOC: 0.9995157384987894
+2023-08-18 18:04:36,262 - pytorch-ner-train - INFO - train f1 I-MISC: 0.999541914796152
+2023-08-18 18:04:36,262 - pytorch-ner-train - INFO - train f1 I-ORG: 0.9994909120161547
+2023-08-18 18:04:36,262 - pytorch-ner-train - INFO - train f1 I-PER: 1.0
+2023-08-18 18:04:36,263 - pytorch-ner-train - INFO - train f1 O: 0.999978730170981
+2023-08-18 18:04:36,263 - pytorch-ner-train - INFO - train f1-weighted: 0.9999403207886317
+2023-08-18 18:04:36,263 - pytorch-ner-train - INFO - 
+
+2023-08-18 18:04:45,001 - pytorch-ner-train - INFO - valid loss: 0.3741432017395162
+2023-08-18 18:04:45,001 - pytorch-ner-train - INFO - valid f1 B-LOC: 0.2936622460431984
+2023-08-18 18:04:45,002 - pytorch-ner-train - INFO - valid f1 B-MISC: 0.139620925811402
+2023-08-18 18:04:45,002 - pytorch-ner-train - INFO - valid f1 B-ORG: 0.19832718027523222
+2023-08-18 18:04:45,002 - pytorch-ner-train - INFO - valid f1 B-PER: 0.23428906497966848
+2023-08-18 18:04:45,002 - pytorch-ner-train - INFO - valid f1 I-LOC: 0.042943722943722944
+2023-08-18 18:04:45,002 - pytorch-ner-train - INFO - valid f1 I-MISC: 0.04135802469135802
+2023-08-18 18:04:45,002 - pytorch-ner-train - INFO - valid f1 I-ORG: 0.07340220385674931
+2023-08-18 18:04:45,003 - pytorch-ner-train - INFO - valid f1 I-PER: 0.17378605354834853
+2023-08-18 18:04:45,003 - pytorch-ner-train - INFO - valid f1 O: 0.9312634968285399
+2023-08-18 18:04:45,003 - pytorch-ner-train - INFO - valid f1-weighted: 0.9193834489565629
+2023-08-18 18:04:45,003 - pytorch-ner-train - INFO - 
+
+2023-08-18 18:04:45,003 - pytorch-ner-train - INFO - epoch [31/50]
+
+2023-08-18 18:04:46,646 - pytorch-ner-train - INFO - train loss: 0.0005661575784669968
+2023-08-18 18:04:46,646 - pytorch-ner-train - INFO - train f1 B-LOC: 0.9995747365716102
+2023-08-18 18:04:46,646 - pytorch-ner-train - INFO - train f1 B-MISC: 0.9997095069439013
+2023-08-18 18:04:46,646 - pytorch-ner-train - INFO - train f1 B-ORG: 0.999751657108198
+2023-08-18 18:04:46,646 - pytorch-ner-train - INFO - train f1 B-PER: 1.0
+2023-08-18 18:04:46,646 - pytorch-ner-train - INFO - train f1 I-LOC: 0.9995157384987894
+2023-08-18 18:04:46,646 - pytorch-ner-train - INFO - train f1 I-MISC: 0.9991712400068726
+2023-08-18 18:04:46,646 - pytorch-ner-train - INFO - train f1 I-ORG: 0.9995355016385011
+2023-08-18 18:04:46,646 - pytorch-ner-train - INFO - train f1 I-PER: 1.0
+2023-08-18 18:04:46,646 - pytorch-ner-train - INFO - train f1 O: 0.9999857871115776
+2023-08-18 18:04:46,647 - pytorch-ner-train - INFO - train f1-weighted: 0.9999473021333879
+2023-08-18 18:04:46,647 - pytorch-ner-train - INFO - 
+
+2023-08-18 18:04:55,363 - pytorch-ner-train - INFO - valid loss: 0.3683931622480676
+2023-08-18 18:04:55,364 - pytorch-ner-train - INFO - valid f1 B-LOC: 0.2954515678325202
+2023-08-18 18:04:55,366 - pytorch-ner-train - INFO - valid f1 B-MISC: 0.14010192629240248
+2023-08-18 18:04:55,366 - pytorch-ner-train - INFO - valid f1 B-ORG: 0.1968347044970421
+2023-08-18 18:04:55,366 - pytorch-ner-train - INFO - valid f1 B-PER: 0.23615127684188036
+2023-08-18 18:04:55,366 - pytorch-ner-train - INFO - valid f1 I-LOC: 0.04323232323232323
+2023-08-18 18:04:55,367 - pytorch-ner-train - INFO - valid f1 I-MISC: 0.04174282507615841
+2023-08-18 18:04:55,367 - pytorch-ner-train - INFO - valid f1 I-ORG: 0.07241615287069833
+2023-08-18 18:04:55,367 - pytorch-ner-train - INFO - valid f1 I-PER: 0.17451259332250732
+2023-08-18 18:04:55,367 - pytorch-ner-train - INFO - valid f1 O: 0.933117627490595
+2023-08-18 18:04:55,367 - pytorch-ner-train - INFO - valid f1-weighted: 0.9207443161485355
+2023-08-18 18:04:55,367 - pytorch-ner-train - INFO - 
+
+2023-08-18 18:04:55,368 - pytorch-ner-train - INFO - epoch [32/50]
+
+2023-08-18 18:04:57,005 - pytorch-ner-train - INFO - train loss: 0.0005506142506265413
+2023-08-18 18:04:57,005 - pytorch-ner-train - INFO - train f1 B-LOC: 0.9992558772960767
+2023-08-18 18:04:57,005 - pytorch-ner-train - INFO - train f1 B-MISC: 0.9997044275468385
+2023-08-18 18:04:57,006 - pytorch-ner-train - INFO - train f1 B-ORG: 0.9996879038814773
+2023-08-18 18:04:57,006 - pytorch-ner-train - INFO - train f1 B-PER: 1.0
+2023-08-18 18:04:57,006 - pytorch-ner-train - INFO - train f1 I-LOC: 0.9992572399352061
+2023-08-18 18:04:57,006 - pytorch-ner-train - INFO - train f1 I-MISC: 0.9986942875078468
+2023-08-18 18:04:57,006 - pytorch-ner-train - INFO - train f1 I-ORG: 0.9994863864299036
+2023-08-18 18:04:57,006 - pytorch-ner-train - INFO - train f1 I-PER: 1.0
+2023-08-18 18:04:57,006 - pytorch-ner-train - INFO - train f1 O: 0.9999763629708452
+2023-08-18 18:04:57,006 - pytorch-ner-train - INFO - train f1-weighted: 0.9999208806667196
+2023-08-18 18:04:57,006 - pytorch-ner-train - INFO - 
+
+2023-08-18 18:05:05,657 - pytorch-ner-train - INFO - valid loss: 0.372144529537212
+2023-08-18 18:05:05,657 - pytorch-ner-train - INFO - valid f1 B-LOC: 0.2969041892851417
+2023-08-18 18:05:05,657 - pytorch-ner-train - INFO - valid f1 B-MISC: 0.14042900661948282
+2023-08-18 18:05:05,658 - pytorch-ner-train - INFO - valid f1 B-ORG: 0.19653648419882186
+2023-08-18 18:05:05,658 - pytorch-ner-train - INFO - valid f1 B-PER: 0.2356883294958161
+2023-08-18 18:05:05,658 - pytorch-ner-train - INFO - valid f1 I-LOC: 0.04323232323232323
+2023-08-18 18:05:05,658 - pytorch-ner-train - INFO - valid f1 I-MISC: 0.041588904922238254
+2023-08-18 18:05:05,658 - pytorch-ner-train - INFO - valid f1 I-ORG: 0.0721899993545015
+2023-08-18 18:05:05,659 - pytorch-ner-train - INFO - valid f1 I-PER: 0.17508154817717647
+2023-08-18 18:05:05,659 - pytorch-ner-train - INFO - valid f1 O: 0.9324961324231621
+2023-08-18 18:05:05,660 - pytorch-ner-train - INFO - valid f1-weighted: 0.9205162109522974
+2023-08-18 18:05:05,660 - pytorch-ner-train - INFO - 
+
+2023-08-18 18:05:05,660 - pytorch-ner-train - INFO - epoch [33/50]
+
+2023-08-18 18:05:07,294 - pytorch-ner-train - INFO - train loss: 0.0005193339119136523
+2023-08-18 18:05:07,295 - pytorch-ner-train - INFO - train f1 B-LOC: 0.9994047447239113
+2023-08-18 18:05:07,295 - pytorch-ner-train - INFO - train f1 B-MISC: 0.9998321866084913
+2023-08-18 18:05:07,295 - pytorch-ner-train - INFO - train f1 B-ORG: 0.9995835380375627
+2023-08-18 18:05:07,295 - pytorch-ner-train - INFO - train f1 B-PER: 1.0
+2023-08-18 18:05:07,295 - pytorch-ner-train - INFO - train f1 I-LOC: 0.9995866060355519
+2023-08-18 18:05:07,295 - pytorch-ner-train - INFO - train f1 I-MISC: 0.9995157384987894
+2023-08-18 18:05:07,295 - pytorch-ner-train - INFO - train f1 I-ORG: 0.9992188832237409
+2023-08-18 18:05:07,295 - pytorch-ner-train - INFO - train f1 I-PER: 1.0
+2023-08-18 18:05:07,295 - pytorch-ner-train - INFO - train f1 O: 0.9999794458670772
+2023-08-18 18:05:07,295 - pytorch-ner-train - INFO - train f1-weighted: 0.9999313330747908
+2023-08-18 18:05:07,295 - pytorch-ner-train - INFO - 
+
+2023-08-18 18:05:16,045 - pytorch-ner-train - INFO - valid loss: 0.37319252044056334
+2023-08-18 18:05:16,045 - pytorch-ner-train - INFO - valid f1 B-LOC: 0.29540346778442017
+2023-08-18 18:05:16,046 - pytorch-ner-train - INFO - valid f1 B-MISC: 0.14024622643670262
+2023-08-18 18:05:16,046 - pytorch-ner-train - INFO - valid f1 B-ORG: 0.1960073836697213
+2023-08-18 18:05:16,046 - pytorch-ner-train - INFO - valid f1 B-PER: 0.23862522592226648
+2023-08-18 18:05:16,046 - pytorch-ner-train - INFO - valid f1 I-LOC: 0.04323232323232323
+2023-08-18 18:05:16,046 - pytorch-ner-train - INFO - valid f1 I-MISC: 0.04145422478755812
+2023-08-18 18:05:16,047 - pytorch-ner-train - INFO - valid f1 I-ORG: 0.07246104624892502
+2023-08-18 18:05:16,047 - pytorch-ner-train - INFO - valid f1 I-PER: 0.17543611424602826
+2023-08-18 18:05:16,047 - pytorch-ner-train - INFO - valid f1 O: 0.9324540294152918
+2023-08-18 18:05:16,047 - pytorch-ner-train - INFO - valid f1-weighted: 0.9206077589925415
+2023-08-18 18:05:16,047 - pytorch-ner-train - INFO - 
+
+2023-08-18 18:05:16,047 - pytorch-ner-train - INFO - epoch [34/50]
+
+2023-08-18 18:05:17,698 - pytorch-ner-train - INFO - train loss: 0.0005009731216656075
+2023-08-18 18:05:17,698 - pytorch-ner-train - INFO - train f1 B-LOC: 0.9993613354535908
+2023-08-18 18:05:17,698 - pytorch-ner-train - INFO - train f1 B-MISC: 0.9997197721585533
+2023-08-18 18:05:17,698 - pytorch-ner-train - INFO - train f1 B-ORG: 0.999663655044851
+2023-08-18 18:05:17,698 - pytorch-ner-train - INFO - train f1 B-PER: 1.0
+2023-08-18 18:05:17,698 - pytorch-ner-train - INFO - train f1 I-LOC: 0.999128520831704
+2023-08-18 18:05:17,698 - pytorch-ner-train - INFO - train f1 I-MISC: 0.9988687996078506
+2023-08-18 18:05:17,698 - pytorch-ner-train - INFO - train f1 I-ORG: 0.9995340089627921
+2023-08-18 18:05:17,698 - pytorch-ner-train - INFO - train f1 I-PER: 1.0
+2023-08-18 18:05:17,698 - pytorch-ner-train - INFO - train f1 O: 0.999982647512204
+2023-08-18 18:05:17,698 - pytorch-ner-train - INFO - train f1-weighted: 0.9999317185591301
+2023-08-18 18:05:17,698 - pytorch-ner-train - INFO - 
+
+2023-08-18 18:05:26,409 - pytorch-ner-train - INFO - valid loss: 0.37800831667342566
+2023-08-18 18:05:26,409 - pytorch-ner-train - INFO - valid f1 B-LOC: 0.2957209281018805
+2023-08-18 18:05:26,409 - pytorch-ner-train - INFO - valid f1 B-MISC: 0.1394285256190018
+2023-08-18 18:05:26,409 - pytorch-ner-train - INFO - valid f1 B-ORG: 0.19706695901501095
+2023-08-18 18:05:26,409 - pytorch-ner-train - INFO - valid f1 B-PER: 0.23430618019535324
+2023-08-18 18:05:26,410 - pytorch-ner-train - INFO - valid f1 I-LOC: 0.04323232323232323
+2023-08-18 18:05:26,410 - pytorch-ner-train - INFO - valid f1 I-MISC: 0.041588904922238254
+2023-08-18 18:05:26,410 - pytorch-ner-train - INFO - valid f1 I-ORG: 0.07276728322182867
+2023-08-18 18:05:26,410 - pytorch-ner-train - INFO - valid f1 I-PER: 0.1751747706513513
+2023-08-18 18:05:26,410 - pytorch-ner-train - INFO - valid f1 O: 0.9322234799396926
+2023-08-18 18:05:26,410 - pytorch-ner-train - INFO - valid f1-weighted: 0.9202943627087304
+2023-08-18 18:05:26,410 - pytorch-ner-train - INFO - 
+
+2023-08-18 18:05:26,410 - pytorch-ner-train - INFO - epoch [35/50]
+
+2023-08-18 18:05:28,038 - pytorch-ner-train - INFO - train loss: 0.00047905672483651313
+2023-08-18 18:05:28,038 - pytorch-ner-train - INFO - train f1 B-LOC: 0.9995640564288683
+2023-08-18 18:05:28,038 - pytorch-ner-train - INFO - train f1 B-MISC: 0.9998665421059656
+2023-08-18 18:05:28,039 - pytorch-ner-train - INFO - train f1 B-ORG: 0.9996922894258417
+2023-08-18 18:05:28,039 - pytorch-ner-train - INFO - train f1 B-PER: 1.0
+2023-08-18 18:05:28,039 - pytorch-ner-train - INFO - train f1 I-LOC: 0.9995654063450674
+2023-08-18 18:05:28,039 - pytorch-ner-train - INFO - train f1 I-MISC: 0.9996540989277067
+2023-08-18 18:05:28,039 - pytorch-ner-train - INFO - train f1 I-ORG: 0.9994135446246712
+2023-08-18 18:05:28,039 - pytorch-ner-train - INFO - train f1 I-PER: 1.0
+2023-08-18 18:05:28,039 - pytorch-ner-train - INFO - train f1 O: 0.999985470735424
+2023-08-18 18:05:28,039 - pytorch-ner-train - INFO - train f1-weighted: 0.9999468262829162
+2023-08-18 18:05:28,039 - pytorch-ner-train - INFO - 
+
+2023-08-18 18:05:36,736 - pytorch-ner-train - INFO - valid loss: 0.3757367623468189
+2023-08-18 18:05:36,736 - pytorch-ner-train - INFO - valid f1 B-LOC: 0.29558624796720034
+2023-08-18 18:05:36,737 - pytorch-ner-train - INFO - valid f1 B-MISC: 0.14015002634050253
+2023-08-18 18:05:36,737 - pytorch-ner-train - INFO - valid f1 B-ORG: 0.19576688342922108
+2023-08-18 18:05:36,737 - pytorch-ner-train - INFO - valid f1 B-PER: 0.23648859099060046
+2023-08-18 18:05:36,737 - pytorch-ner-train - INFO - valid f1 I-LOC: 0.04323232323232323
+2023-08-18 18:05:36,737 - pytorch-ner-train - INFO - valid f1 I-MISC: 0.04155042488375822
+2023-08-18 18:05:36,738 - pytorch-ner-train - INFO - valid f1 I-ORG: 0.07180070130286581
+2023-08-18 18:05:36,738 - pytorch-ner-train - INFO - valid f1 I-PER: 0.1763259651358792
+2023-08-18 18:05:36,738 - pytorch-ner-train - INFO - valid f1 O: 0.932984834465024
+2023-08-18 18:05:36,738 - pytorch-ner-train - INFO - valid f1-weighted: 0.9208693797665884
+2023-08-18 18:05:36,738 - pytorch-ner-train - INFO - 
+
+2023-08-18 18:05:36,738 - pytorch-ner-train - INFO - epoch [36/50]
+
+2023-08-18 18:05:38,362 - pytorch-ner-train - INFO - train loss: 0.0004662815994441004
+2023-08-18 18:05:38,363 - pytorch-ner-train - INFO - train f1 B-LOC: 0.9993888642461739
+2023-08-18 18:05:38,363 - pytorch-ner-train - INFO - train f1 B-MISC: 0.9995767500317787
+2023-08-18 18:05:38,363 - pytorch-ner-train - INFO - train f1 B-ORG: 0.9996977726729255
+2023-08-18 18:05:38,363 - pytorch-ner-train - INFO - train f1 B-PER: 1.0
+2023-08-18 18:05:38,363 - pytorch-ner-train - INFO - train f1 I-LOC: 0.9994532531437944
+2023-08-18 18:05:38,363 - pytorch-ner-train - INFO - train f1 I-MISC: 0.9985989486384852
+2023-08-18 18:05:38,363 - pytorch-ner-train - INFO - train f1 I-ORG: 0.9994771205431539
+2023-08-18 18:05:38,363 - pytorch-ner-train - INFO - train f1 I-PER: 1.0
+2023-08-18 18:05:38,363 - pytorch-ner-train - INFO - train f1 O: 0.9999794459250738
+2023-08-18 18:05:38,363 - pytorch-ner-train - INFO - train f1-weighted: 0.9999259594172006
+2023-08-18 18:05:38,363 - pytorch-ner-train - INFO - 
+
+2023-08-18 18:05:47,085 - pytorch-ner-train - INFO - valid loss: 0.38290082794922686
+2023-08-18 18:05:47,085 - pytorch-ner-train - INFO - valid f1 B-LOC: 0.29557662795758033
+2023-08-18 18:05:47,085 - pytorch-ner-train - INFO - valid f1 B-MISC: 0.13995762614810234
+2023-08-18 18:05:47,085 - pytorch-ner-train - INFO - valid f1 B-ORG: 0.19704771899577095
+2023-08-18 18:05:47,085 - pytorch-ner-train - INFO - valid f1 B-PER: 0.23631033124712336
+2023-08-18 18:05:47,086 - pytorch-ner-train - INFO - valid f1 I-LOC: 0.04323232323232323
+2023-08-18 18:05:47,086 - pytorch-ner-train - INFO - valid f1 I-MISC: 0.041588904922238254
+2023-08-18 18:05:47,086 - pytorch-ner-train - INFO - valid f1 I-ORG: 0.07273178080537389
+2023-08-18 18:05:47,086 - pytorch-ner-train - INFO - valid f1 I-PER: 0.1757984679417153
+2023-08-18 18:05:47,086 - pytorch-ner-train - INFO - valid f1 O: 0.9313412591437317
+2023-08-18 18:05:47,086 - pytorch-ner-train - INFO - valid f1-weighted: 0.919810416485789
+2023-08-18 18:05:47,086 - pytorch-ner-train - INFO - 
+
+2023-08-18 18:05:47,086 - pytorch-ner-train - INFO - epoch [37/50]
+
+2023-08-18 18:05:48,713 - pytorch-ner-train - INFO - train loss: 0.00043035977889025996
+2023-08-18 18:05:48,713 - pytorch-ner-train - INFO - train f1 B-LOC: 0.9994020282867315
+2023-08-18 18:05:48,713 - pytorch-ner-train - INFO - train f1 B-MISC: 0.9998252664686352
+2023-08-18 18:05:48,714 - pytorch-ner-train - INFO - train f1 B-ORG: 0.9997424715305147
+2023-08-18 18:05:48,714 - pytorch-ner-train - INFO - train f1 B-PER: 1.0
+2023-08-18 18:05:48,714 - pytorch-ner-train - INFO - train f1 I-LOC: 0.9991558995904195
+2023-08-18 18:05:48,714 - pytorch-ner-train - INFO - train f1 I-MISC: 0.9995654063450674
+2023-08-18 18:05:48,714 - pytorch-ner-train - INFO - train f1 I-ORG: 0.9995025537212717
+2023-08-18 18:05:48,714 - pytorch-ner-train - INFO - train f1 I-PER: 1.0
+2023-08-18 18:05:48,714 - pytorch-ner-train - INFO - train f1 O: 0.9999797160755294
+2023-08-18 18:05:48,714 - pytorch-ner-train - INFO - train f1-weighted: 0.9999371637495443
+2023-08-18 18:05:48,714 - pytorch-ner-train - INFO - 
+
+2023-08-18 18:05:57,350 - pytorch-ner-train - INFO - valid loss: 0.3804619340267663
+2023-08-18 18:05:57,350 - pytorch-ner-train - INFO - valid f1 B-LOC: 0.2958940882750407
+2023-08-18 18:05:57,351 - pytorch-ner-train - INFO - valid f1 B-MISC: 0.14019812638860255
+2023-08-18 18:05:57,351 - pytorch-ner-train - INFO - valid f1 B-ORG: 0.19699824466058233
+2023-08-18 18:05:57,351 - pytorch-ner-train - INFO - valid f1 B-PER: 0.23446862797684864
+2023-08-18 18:05:57,351 - pytorch-ner-train - INFO - valid f1 I-LOC: 0.04323232323232323
+2023-08-18 18:05:57,351 - pytorch-ner-train - INFO - valid f1 I-MISC: 0.04168510501843835
+2023-08-18 18:05:57,351 - pytorch-ner-train - INFO - valid f1 I-ORG: 0.07256388873271989
+2023-08-18 18:05:57,351 - pytorch-ner-train - INFO - valid f1 I-PER: 0.17588504802829538
+2023-08-18 18:05:57,352 - pytorch-ner-train - INFO - valid f1 O: 0.9327999571814249
+2023-08-18 18:05:57,352 - pytorch-ner-train - INFO - valid f1-weighted: 0.9208164383344871
+2023-08-18 18:05:57,352 - pytorch-ner-train - INFO - 
+
+2023-08-18 18:05:57,352 - pytorch-ner-train - INFO - epoch [38/50]
+
+2023-08-18 18:05:58,991 - pytorch-ner-train - INFO - train loss: 0.00044297275895063403
+2023-08-18 18:05:58,991 - pytorch-ner-train - INFO - train f1 B-LOC: 0.9992664084590531
+2023-08-18 18:05:58,991 - pytorch-ner-train - INFO - train f1 B-MISC: 0.9998947257606063
+2023-08-18 18:05:58,991 - pytorch-ner-train - INFO - train f1 B-ORG: 0.9996981306687416
+2023-08-18 18:05:58,991 - pytorch-ner-train - INFO - train f1 B-PER: 1.0
+2023-08-18 18:05:58,991 - pytorch-ner-train - INFO - train f1 I-LOC: 0.999002152499608
+2023-08-18 18:05:58,991 - pytorch-ner-train - INFO - train f1 I-MISC: 0.999639379733141
+2023-08-18 18:05:58,991 - pytorch-ner-train - INFO - train f1 I-ORG: 0.9994836386912269
+2023-08-18 18:05:58,992 - pytorch-ner-train - INFO - train f1 I-PER: 1.0
+2023-08-18 18:05:58,992 - pytorch-ner-train - INFO - train f1 O: 0.9999757369539412
+2023-08-18 18:05:58,992 - pytorch-ner-train - INFO - train f1-weighted: 0.9999242633607187
+2023-08-18 18:05:58,992 - pytorch-ner-train - INFO - 
+
+2023-08-18 18:06:07,719 - pytorch-ner-train - INFO - valid loss: 0.388715464763262
+2023-08-18 18:06:07,719 - pytorch-ner-train - INFO - valid f1 B-LOC: 0.29558624796720034
+2023-08-18 18:06:07,720 - pytorch-ner-train - INFO - valid f1 B-MISC: 0.14015002634050253
+2023-08-18 18:06:07,720 - pytorch-ner-train - INFO - valid f1 B-ORG: 0.19595103789908985
+2023-08-18 18:06:07,720 - pytorch-ner-train - INFO - valid f1 B-PER: 0.23762211257772645
+2023-08-18 18:06:07,720 - pytorch-ner-train - INFO - valid f1 I-LOC: 0.04323232323232323
+2023-08-18 18:06:07,720 - pytorch-ner-train - INFO - valid f1 I-MISC: 0.04164662497995831
+2023-08-18 18:06:07,721 - pytorch-ner-train - INFO - valid f1 I-ORG: 0.07231399753044775
+2023-08-18 18:06:07,721 - pytorch-ner-train - INFO - valid f1 I-PER: 0.17428308737871567
+2023-08-18 18:06:07,721 - pytorch-ner-train - INFO - valid f1 O: 0.9306281569751552
+2023-08-18 18:06:07,721 - pytorch-ner-train - INFO - valid f1-weighted: 0.9193566552980118
+2023-08-18 18:06:07,721 - pytorch-ner-train - INFO - 
+
+2023-08-18 18:06:07,721 - pytorch-ner-train - INFO - epoch [39/50]
+
+2023-08-18 18:06:09,337 - pytorch-ner-train - INFO - train loss: 0.00041493257557996945
+2023-08-18 18:06:09,337 - pytorch-ner-train - INFO - train f1 B-LOC: 0.9994337459557419
+2023-08-18 18:06:09,338 - pytorch-ner-train - INFO - train f1 B-MISC: 0.9998744507219084
+2023-08-18 18:06:09,338 - pytorch-ner-train - INFO - train f1 B-ORG: 0.9997475715927907
+2023-08-18 18:06:09,338 - pytorch-ner-train - INFO - train f1 B-PER: 1.0
+2023-08-18 18:06:09,338 - pytorch-ner-train - INFO - train f1 I-LOC: 0.999639379733141
+2023-08-18 18:06:09,338 - pytorch-ner-train - INFO - train f1 I-MISC: 0.9995157384987894
+2023-08-18 18:06:09,338 - pytorch-ner-train - INFO - train f1 I-ORG: 0.9995716858439947
+2023-08-18 18:06:09,338 - pytorch-ner-train - INFO - train f1 I-PER: 1.0
+2023-08-18 18:06:09,338 - pytorch-ner-train - INFO - train f1 O: 0.9999802760142205
+2023-08-18 18:06:09,338 - pytorch-ner-train - INFO - train f1-weighted: 0.999943684921064
+2023-08-18 18:06:09,338 - pytorch-ner-train - INFO - 
+
+2023-08-18 18:06:18,038 - pytorch-ner-train - INFO - valid loss: 0.38589026449809627
+2023-08-18 18:06:18,038 - pytorch-ner-train - INFO - valid f1 B-LOC: 0.29657710895806133
+2023-08-18 18:06:18,038 - pytorch-ner-train - INFO - valid f1 B-MISC: 0.14034242653290271
+2023-08-18 18:06:18,038 - pytorch-ner-train - INFO - valid f1 B-ORG: 0.1968058444681821
+2023-08-18 18:06:18,039 - pytorch-ner-train - INFO - valid f1 B-PER: 0.23649828502815073
+2023-08-18 18:06:18,039 - pytorch-ner-train - INFO - valid f1 I-LOC: 0.04323232323232323
+2023-08-18 18:06:18,039 - pytorch-ner-train - INFO - valid f1 I-MISC: 0.04139650472983806
+2023-08-18 18:06:18,039 - pytorch-ner-train - INFO - valid f1 I-ORG: 0.0723515613775354
+2023-08-18 18:06:18,039 - pytorch-ner-train - INFO - valid f1 I-PER: 0.1761736483168957
+2023-08-18 18:06:18,039 - pytorch-ner-train - INFO - valid f1 O: 0.9317343862425944
+2023-08-18 18:06:18,040 - pytorch-ner-train - INFO - valid f1-weighted: 0.9201268733613557
+2023-08-18 18:06:18,040 - pytorch-ner-train - INFO - 
+
+2023-08-18 18:06:18,040 - pytorch-ner-train - INFO - epoch [40/50]
+
+2023-08-18 18:06:19,690 - pytorch-ner-train - INFO - train loss: 0.00039621297135885994
+2023-08-18 18:06:19,690 - pytorch-ner-train - INFO - train f1 B-LOC: 0.9995202276780862
+2023-08-18 18:06:19,690 - pytorch-ner-train - INFO - train f1 B-MISC: 0.9998665421059656
+2023-08-18 18:06:19,690 - pytorch-ner-train - INFO - train f1 B-ORG: 0.9996685558856604
+2023-08-18 18:06:19,690 - pytorch-ner-train - INFO - train f1 B-PER: 1.0
+2023-08-18 18:06:19,690 - pytorch-ner-train - INFO - train f1 I-LOC: 0.9995866060355519
+2023-08-18 18:06:19,690 - pytorch-ner-train - INFO - train f1 I-MISC: 0.9995654063450674
+2023-08-18 18:06:19,690 - pytorch-ner-train - INFO - train f1 I-ORG: 0.9995001009873928
+2023-08-18 18:06:19,691 - pytorch-ner-train - INFO - train f1 I-PER: 1.0
+2023-08-18 18:06:19,691 - pytorch-ner-train - INFO - train f1 O: 0.9999828611988649
+2023-08-18 18:06:19,691 - pytorch-ner-train - INFO - train f1-weighted: 0.9999432294751395
+2023-08-18 18:06:19,691 - pytorch-ner-train - INFO - 
+
+2023-08-18 18:06:28,433 - pytorch-ner-train - INFO - valid loss: 0.38608592637834305
+2023-08-18 18:06:28,433 - pytorch-ner-train - INFO - valid f1 B-LOC: 0.29623078861174096
+2023-08-18 18:06:28,433 - pytorch-ner-train - INFO - valid f1 B-MISC: 0.14000572619620238
+2023-08-18 18:06:28,433 - pytorch-ner-train - INFO - valid f1 B-ORG: 0.19631522397756165
+2023-08-18 18:06:28,433 - pytorch-ner-train - INFO - valid f1 B-PER: 0.23539852059505295
+2023-08-18 18:06:28,433 - pytorch-ner-train - INFO - valid f1 I-LOC: 0.04323232323232323
+2023-08-18 18:06:28,434 - pytorch-ner-train - INFO - valid f1 I-MISC: 0.041588904922238254
+2023-08-18 18:06:28,434 - pytorch-ner-train - INFO - valid f1 I-ORG: 0.07231376848259966
+2023-08-18 18:06:28,434 - pytorch-ner-train - INFO - valid f1 I-PER: 0.1756972287928571
+2023-08-18 18:06:28,434 - pytorch-ner-train - INFO - valid f1 O: 0.9325565320063339
+2023-08-18 18:06:28,434 - pytorch-ner-train - INFO - valid f1-weighted: 0.92051224692471
+2023-08-18 18:06:28,434 - pytorch-ner-train - INFO - 
+
+2023-08-18 18:06:28,434 - pytorch-ner-train - INFO - epoch [41/50]
+
+2023-08-18 18:06:30,080 - pytorch-ner-train - INFO - train loss: 0.0004055317808475377
+2023-08-18 18:06:30,080 - pytorch-ner-train - INFO - train f1 B-LOC: 0.9995304961133656
+2023-08-18 18:06:30,080 - pytorch-ner-train - INFO - train f1 B-MISC: 0.9998744507219084
+2023-08-18 18:06:30,080 - pytorch-ner-train - INFO - train f1 B-ORG: 0.9997712612045254
+2023-08-18 18:06:30,080 - pytorch-ner-train - INFO - train f1 B-PER: 1.0
+2023-08-18 18:06:30,080 - pytorch-ner-train - INFO - train f1 I-LOC: 0.999639379733141
+2023-08-18 18:06:30,080 - pytorch-ner-train - INFO - train f1 I-MISC: 0.999623352165725
+2023-08-18 18:06:30,080 - pytorch-ner-train - INFO - train f1 I-ORG: 0.9996142219643157
+2023-08-18 18:06:30,080 - pytorch-ner-train - INFO - train f1 I-PER: 1.0
+2023-08-18 18:06:30,080 - pytorch-ner-train - INFO - train f1 O: 0.9999823249972063
+2023-08-18 18:06:30,080 - pytorch-ner-train - INFO - train f1-weighted: 0.9999460584348395
+2023-08-18 18:06:30,080 - pytorch-ner-train - INFO - 
+
+2023-08-18 18:06:38,805 - pytorch-ner-train - INFO - valid loss: 0.39038022521040916
+2023-08-18 18:06:38,805 - pytorch-ner-train - INFO - valid f1 B-LOC: 0.2948551272360796
+2023-08-18 18:06:38,805 - pytorch-ner-train - INFO - valid f1 B-MISC: 0.1393323255228017
+2023-08-18 18:06:38,805 - pytorch-ner-train - INFO - valid f1 B-ORG: 0.19757819381196007
+2023-08-18 18:06:38,805 - pytorch-ner-train - INFO - valid f1 B-PER: 0.23649954238871543
+2023-08-18 18:06:38,805 - pytorch-ner-train - INFO - valid f1 I-LOC: 0.04323232323232323
+2023-08-18 18:06:38,806 - pytorch-ner-train - INFO - valid f1 I-MISC: 0.04164662497995831
+2023-08-18 18:06:38,806 - pytorch-ner-train - INFO - valid f1 I-ORG: 0.07276270226486677
+2023-08-18 18:06:38,806 - pytorch-ner-train - INFO - valid f1 I-PER: 0.1749230470662944
+2023-08-18 18:06:38,806 - pytorch-ner-train - INFO - valid f1 O: 0.9313348025962098
+2023-08-18 18:06:38,806 - pytorch-ner-train - INFO - valid f1-weighted: 0.9197433116302961
+2023-08-18 18:06:38,806 - pytorch-ner-train - INFO - 
+
+2023-08-18 18:06:38,807 - pytorch-ner-train - INFO - epoch [42/50]
+
+2023-08-18 18:06:40,439 - pytorch-ner-train - INFO - train loss: 0.0003963814472673082
+2023-08-18 18:06:40,440 - pytorch-ner-train - INFO - train f1 B-LOC: 0.9992532844577878
+2023-08-18 18:06:40,440 - pytorch-ner-train - INFO - train f1 B-MISC: 0.9997557633311788
+2023-08-18 18:06:40,440 - pytorch-ner-train - INFO - train f1 B-ORG: 0.9996793298140071
+2023-08-18 18:06:40,440 - pytorch-ner-train - INFO - train f1 B-PER: 1.0
+2023-08-18 18:06:40,440 - pytorch-ner-train - INFO - train f1 I-LOC: 0.9986114896318573
+2023-08-18 18:06:40,440 - pytorch-ner-train - INFO - train f1 I-MISC: 0.9993151857558638
+2023-08-18 18:06:40,440 - pytorch-ner-train - INFO - train f1 I-ORG: 0.9994485886573528
+2023-08-18 18:06:40,440 - pytorch-ner-train - INFO - train f1 I-PER: 1.0
+2023-08-18 18:06:40,440 - pytorch-ner-train - INFO - train f1 O: 0.9999762557151587
+2023-08-18 18:06:40,440 - pytorch-ner-train - INFO - train f1-weighted: 0.9999172440299076
+2023-08-18 18:06:40,440 - pytorch-ner-train - INFO - 
+
+2023-08-18 18:06:49,176 - pytorch-ner-train - INFO - valid loss: 0.3910656993791196
+2023-08-18 18:06:49,176 - pytorch-ner-train - INFO - valid f1 B-LOC: 0.2959710483520007
+2023-08-18 18:06:49,177 - pytorch-ner-train - INFO - valid f1 B-MISC: 0.13976522595570215
+2023-08-18 18:06:49,177 - pytorch-ner-train - INFO - valid f1 B-ORG: 0.1963839383319903
+2023-08-18 18:06:49,178 - pytorch-ner-train - INFO - valid f1 B-PER: 0.23603367027782168
+2023-08-18 18:06:49,178 - pytorch-ner-train - INFO - valid f1 I-LOC: 0.04323232323232323
+2023-08-18 18:06:49,178 - pytorch-ner-train - INFO - valid f1 I-MISC: 0.04164662497995831
+2023-08-18 18:06:49,179 - pytorch-ner-train - INFO - valid f1 I-ORG: 0.07235843281297827
+2023-08-18 18:06:49,179 - pytorch-ner-train - INFO - valid f1 I-PER: 0.17507192816755648
+2023-08-18 18:06:49,180 - pytorch-ner-train - INFO - valid f1 O: 0.9316391511367635
+2023-08-18 18:06:49,180 - pytorch-ner-train - INFO - valid f1-weighted: 0.9200592305281659
+2023-08-18 18:06:49,180 - pytorch-ner-train - INFO - 
+
+2023-08-18 18:06:49,180 - pytorch-ner-train - INFO - epoch [43/50]
+
+2023-08-18 18:06:50,830 - pytorch-ner-train - INFO - train loss: 0.0003843252693591008
+2023-08-18 18:06:50,830 - pytorch-ner-train - INFO - train f1 B-LOC: 0.9994218917631026
+2023-08-18 18:06:50,830 - pytorch-ner-train - INFO - train f1 B-MISC: 0.9997392438070404
+2023-08-18 18:06:50,830 - pytorch-ner-train - INFO - train f1 B-ORG: 0.9995822405893823
+2023-08-18 18:06:50,830 - pytorch-ner-train - INFO - train f1 B-PER: 1.0
+2023-08-18 18:06:50,830 - pytorch-ner-train - INFO - train f1 I-LOC: 0.9996802046690119
+2023-08-18 18:06:50,830 - pytorch-ner-train - INFO - train f1 I-MISC: 0.998696219035202
+2023-08-18 18:06:50,830 - pytorch-ner-train - INFO - train f1 I-ORG: 0.9993160939336745
+2023-08-18 18:06:50,830 - pytorch-ner-train - INFO - train f1 I-PER: 1.0
+2023-08-18 18:06:50,830 - pytorch-ner-train - INFO - train f1 O: 0.9999783378337808
+2023-08-18 18:06:50,830 - pytorch-ner-train - INFO - train f1-weighted: 0.9999282242661062
+2023-08-18 18:06:50,830 - pytorch-ner-train - INFO - 
+
+2023-08-18 18:06:59,563 - pytorch-ner-train - INFO - valid loss: 0.3915511604241612
+2023-08-18 18:06:59,564 - pytorch-ner-train - INFO - valid f1 B-LOC: 0.29559311940264316
+2023-08-18 18:06:59,564 - pytorch-ner-train - INFO - valid f1 B-MISC: 0.13948624567672188
+2023-08-18 18:06:59,564 - pytorch-ner-train - INFO - valid f1 B-ORG: 0.1975754452377829
+2023-08-18 18:06:59,564 - pytorch-ner-train - INFO - valid f1 B-PER: 0.23625692145345378
+2023-08-18 18:06:59,564 - pytorch-ner-train - INFO - valid f1 I-LOC: 0.04323232323232323
+2023-08-18 18:06:59,565 - pytorch-ner-train - INFO - valid f1 I-MISC: 0.041454224787558114
+2023-08-18 18:06:59,565 - pytorch-ner-train - INFO - valid f1 I-ORG: 0.07236427353310469
+2023-08-18 18:06:59,565 - pytorch-ner-train - INFO - valid f1 I-PER: 0.17554834769159502
+2023-08-18 18:06:59,565 - pytorch-ner-train - INFO - valid f1 O: 0.9325137623050739
+2023-08-18 18:06:59,565 - pytorch-ner-train - INFO - valid f1-weighted: 0.9205619630937225
+2023-08-18 18:06:59,565 - pytorch-ner-train - INFO - 
+
+2023-08-18 18:06:59,565 - pytorch-ner-train - INFO - epoch [44/50]
+
+2023-08-18 18:07:01,209 - pytorch-ner-train - INFO - train loss: 0.0003608292502931209
+2023-08-18 18:07:01,209 - pytorch-ner-train - INFO - train f1 B-LOC: 0.9994025096423784
+2023-08-18 18:07:01,210 - pytorch-ner-train - INFO - train f1 B-MISC: 0.9998599243591539
+2023-08-18 18:07:01,210 - pytorch-ner-train - INFO - train f1 B-ORG: 0.9996436428259994
+2023-08-18 18:07:01,210 - pytorch-ner-train - INFO - train f1 B-PER: 1.0
+2023-08-18 18:07:01,210 - pytorch-ner-train - INFO - train f1 I-LOC: 0.999722145040289
+2023-08-18 18:07:01,210 - pytorch-ner-train - INFO - train f1 I-MISC: 0.9996676636756399
+2023-08-18 18:07:01,210 - pytorch-ner-train - INFO - train f1 I-ORG: 0.9994535666561645
+2023-08-18 18:07:01,210 - pytorch-ner-train - INFO - train f1 I-PER: 1.0
+2023-08-18 18:07:01,210 - pytorch-ner-train - INFO - train f1 O: 0.999976684871567
+2023-08-18 18:07:01,210 - pytorch-ner-train - INFO - train f1-weighted: 0.9999283944584358
+2023-08-18 18:07:01,210 - pytorch-ner-train - INFO - 
+
+2023-08-18 18:07:10,017 - pytorch-ner-train - INFO - valid loss: 0.39268046050582156
+2023-08-18 18:07:10,018 - pytorch-ner-train - INFO - valid f1 B-LOC: 0.29605487986440365
+2023-08-18 18:07:10,018 - pytorch-ner-train - INFO - valid f1 B-MISC: 0.13986142605190224
+2023-08-18 18:07:10,018 - pytorch-ner-train - INFO - valid f1 B-ORG: 0.19641142407376175
+2023-08-18 18:07:10,018 - pytorch-ner-train - INFO - valid f1 B-PER: 0.23715760806842615
+2023-08-18 18:07:10,018 - pytorch-ner-train - INFO - valid f1 I-LOC: 0.042943722943722944
+2023-08-18 18:07:10,019 - pytorch-ner-train - INFO - valid f1 I-MISC: 0.04168510501843835
+2023-08-18 18:07:10,019 - pytorch-ner-train - INFO - valid f1 I-ORG: 0.0728193916072704
+2023-08-18 18:07:10,019 - pytorch-ner-train - INFO - valid f1 I-PER: 0.1751200282156565
+2023-08-18 18:07:10,019 - pytorch-ner-train - INFO - valid f1 O: 0.932500563488614
+2023-08-18 18:07:10,019 - pytorch-ner-train - INFO - valid f1-weighted: 0.9206559410870844
+2023-08-18 18:07:10,019 - pytorch-ner-train - INFO - 
+
+2023-08-18 18:07:10,019 - pytorch-ner-train - INFO - epoch [45/50]
+
+2023-08-18 18:07:11,665 - pytorch-ner-train - INFO - train loss: 0.0003681784745806954
+2023-08-18 18:07:11,665 - pytorch-ner-train - INFO - train f1 B-LOC: 0.999277053788489
+2023-08-18 18:07:11,665 - pytorch-ner-train - INFO - train f1 B-MISC: 0.9998575701467028
+2023-08-18 18:07:11,665 - pytorch-ner-train - INFO - train f1 B-ORG: 0.9996782650282502
+2023-08-18 18:07:11,665 - pytorch-ner-train - INFO - train f1 B-PER: 1.0
+2023-08-18 18:07:11,665 - pytorch-ner-train - INFO - train f1 I-LOC: 0.9992259857686929
+2023-08-18 18:07:11,665 - pytorch-ner-train - INFO - train f1 I-MISC: 0.9993722536095417
+2023-08-18 18:07:11,665 - pytorch-ner-train - INFO - train f1 I-ORG: 0.999439488432951
+2023-08-18 18:07:11,665 - pytorch-ner-train - INFO - train f1 I-PER: 1.0
+2023-08-18 18:07:11,666 - pytorch-ner-train - INFO - train f1 O: 0.9999762037205858
+2023-08-18 18:07:11,666 - pytorch-ner-train - INFO - train f1-weighted: 0.9999266821775262
+2023-08-18 18:07:11,666 - pytorch-ner-train - INFO - 
+
+2023-08-18 18:07:20,487 - pytorch-ner-train - INFO - valid loss: 0.39618251953549494
+2023-08-18 18:07:20,487 - pytorch-ner-train - INFO - valid f1 B-LOC: 0.29585285966238345
+2023-08-18 18:07:20,487 - pytorch-ner-train - INFO - valid f1 B-MISC: 0.13952472571520189
+2023-08-18 18:07:20,487 - pytorch-ner-train - INFO - valid f1 B-ORG: 0.19582460348694117
+2023-08-18 18:07:20,488 - pytorch-ner-train - INFO - valid f1 B-PER: 0.23578807102412908
+2023-08-18 18:07:20,488 - pytorch-ner-train - INFO - valid f1 I-LOC: 0.042943722943722944
+2023-08-18 18:07:20,488 - pytorch-ner-train - INFO - valid f1 I-MISC: 0.04135802469135802
+2023-08-18 18:07:20,488 - pytorch-ner-train - INFO - valid f1 I-ORG: 0.07269433148221027
+2023-08-18 18:07:20,488 - pytorch-ner-train - INFO - valid f1 I-PER: 0.1748795279751563
+2023-08-18 18:07:20,488 - pytorch-ner-train - INFO - valid f1 O: 0.9316817482087213
+2023-08-18 18:07:20,489 - pytorch-ner-train - INFO - valid f1-weighted: 0.9199460133512827
+2023-08-18 18:07:20,489 - pytorch-ner-train - INFO - 
+
+2023-08-18 18:07:20,489 - pytorch-ner-train - INFO - epoch [46/50]
+
+2023-08-18 18:07:22,135 - pytorch-ner-train - INFO - train loss: 0.0003676251900457319
+2023-08-18 18:07:22,135 - pytorch-ner-train - INFO - train f1 B-LOC: 0.9992872076367368
+2023-08-18 18:07:22,135 - pytorch-ner-train - INFO - train f1 B-MISC: 0.9996453781244403
+2023-08-18 18:07:22,135 - pytorch-ner-train - INFO - train f1 B-ORG: 0.9994157740869174
+2023-08-18 18:07:22,135 - pytorch-ner-train - INFO - train f1 B-PER: 1.0
+2023-08-18 18:07:22,135 - pytorch-ner-train - INFO - train f1 I-LOC: 0.999541914796152
+2023-08-18 18:07:22,135 - pytorch-ner-train - INFO - train f1 I-MISC: 0.9987987311597876
+2023-08-18 18:07:22,135 - pytorch-ner-train - INFO - train f1 I-ORG: 0.999184400596957
+2023-08-18 18:07:22,135 - pytorch-ner-train - INFO - train f1 I-PER: 1.0
+2023-08-18 18:07:22,135 - pytorch-ner-train - INFO - train f1 O: 0.9999758432421776
+2023-08-18 18:07:22,135 - pytorch-ner-train - INFO - train f1-weighted: 0.99991062753983
+2023-08-18 18:07:22,135 - pytorch-ner-train - INFO - 
+
+2023-08-18 18:07:30,878 - pytorch-ner-train - INFO - valid loss: 0.4002286807192208
+2023-08-18 18:07:30,878 - pytorch-ner-train - INFO - valid f1 B-LOC: 0.2965743603838842
+2023-08-18 18:07:30,878 - pytorch-ner-train - INFO - valid f1 B-MISC: 0.13958244577292195
+2023-08-18 18:07:30,878 - pytorch-ner-train - INFO - valid f1 B-ORG: 0.19490108256342023
+2023-08-18 18:07:30,878 - pytorch-ner-train - INFO - valid f1 B-PER: 0.2356646142340056
+2023-08-18 18:07:30,879 - pytorch-ner-train - INFO - valid f1 I-LOC: 0.04323232323232323
+2023-08-18 18:07:30,879 - pytorch-ner-train - INFO - valid f1 I-MISC: 0.04155042488375822
+2023-08-18 18:07:30,879 - pytorch-ner-train - INFO - valid f1 I-ORG: 0.07211071756526301
+2023-08-18 18:07:30,879 - pytorch-ner-train - INFO - valid f1 I-PER: 0.17453320762883592
+2023-08-18 18:07:30,879 - pytorch-ner-train - INFO - valid f1 O: 0.9305239217286216
+2023-08-18 18:07:30,879 - pytorch-ner-train - INFO - valid f1-weighted: 0.9190833632612255
+2023-08-18 18:07:30,879 - pytorch-ner-train - INFO - 
+
+2023-08-18 18:07:30,879 - pytorch-ner-train - INFO - epoch [47/50]
+
+2023-08-18 18:07:32,558 - pytorch-ner-train - INFO - train loss: 0.0003352332801037168
+2023-08-18 18:07:32,558 - pytorch-ner-train - INFO - train f1 B-LOC: 0.9992993620513113
+2023-08-18 18:07:32,558 - pytorch-ner-train - INFO - train f1 B-MISC: 0.9998354451209479
+2023-08-18 18:07:32,558 - pytorch-ner-train - INFO - train f1 B-ORG: 0.9996631744194676
+2023-08-18 18:07:32,558 - pytorch-ner-train - INFO - train f1 B-PER: 1.0
+2023-08-18 18:07:32,558 - pytorch-ner-train - INFO - train f1 I-LOC: 0.9988586429264396
+2023-08-18 18:07:32,558 - pytorch-ner-train - INFO - train f1 I-MISC: 0.9994532531437944
+2023-08-18 18:07:32,558 - pytorch-ner-train - INFO - train f1 I-ORG: 0.999540652833984
+2023-08-18 18:07:32,559 - pytorch-ner-train - INFO - train f1 I-PER: 1.0
+2023-08-18 18:07:32,559 - pytorch-ner-train - INFO - train f1 O: 0.9999797412926541
+2023-08-18 18:07:32,559 - pytorch-ner-train - INFO - train f1-weighted: 0.9999318306304872
+2023-08-18 18:07:32,559 - pytorch-ner-train - INFO - 
+
+2023-08-18 18:07:41,624 - pytorch-ner-train - INFO - valid loss: 0.3972422912618561
+2023-08-18 18:07:41,625 - pytorch-ner-train - INFO - valid f1 B-LOC: 0.2957209281018805
+2023-08-18 18:07:41,625 - pytorch-ner-train - INFO - valid f1 B-MISC: 0.1399191461096223
+2023-08-18 18:07:41,625 - pytorch-ner-train - INFO - valid f1 B-ORG: 0.19726897921703115
+2023-08-18 18:07:41,625 - pytorch-ner-train - INFO - valid f1 B-PER: 0.23496762873558966
+2023-08-18 18:07:41,625 - pytorch-ner-train - INFO - valid f1 I-LOC: 0.04323232323232323
+2023-08-18 18:07:41,626 - pytorch-ner-train - INFO - valid f1 I-MISC: 0.041588904922238254
+2023-08-18 18:07:41,626 - pytorch-ner-train - INFO - valid f1 I-ORG: 0.07204269035437866
+2023-08-18 18:07:41,626 - pytorch-ner-train - INFO - valid f1 I-PER: 0.1751200282156565
+2023-08-18 18:07:41,626 - pytorch-ner-train - INFO - valid f1 O: 0.9314067913898362
+2023-08-18 18:07:41,626 - pytorch-ner-train - INFO - valid f1-weighted: 0.9198896516712829
+2023-08-18 18:07:41,626 - pytorch-ner-train - INFO - 
+
+2023-08-18 18:07:41,626 - pytorch-ner-train - INFO - epoch [48/50]
+
+2023-08-18 18:07:43,263 - pytorch-ner-train - INFO - train loss: 0.00033876131401176297
+2023-08-18 18:07:43,263 - pytorch-ner-train - INFO - train f1 B-LOC: 0.9995365335030586
+2023-08-18 18:07:43,264 - pytorch-ner-train - INFO - train f1 B-MISC: 0.999864406779661
+2023-08-18 18:07:43,264 - pytorch-ner-train - INFO - train f1 B-ORG: 0.9997483448534964
+2023-08-18 18:07:43,264 - pytorch-ner-train - INFO - train f1 B-PER: 1.0
+2023-08-18 18:07:43,264 - pytorch-ner-train - INFO - train f1 I-LOC: 0.9994155464640561
+2023-08-18 18:07:43,264 - pytorch-ner-train - INFO - train f1 I-MISC: 0.9996058336618052
+2023-08-18 18:07:43,264 - pytorch-ner-train - INFO - train f1 I-ORG: 0.9995808880528767
+2023-08-18 18:07:43,264 - pytorch-ner-train - INFO - train f1 I-PER: 1.0
+2023-08-18 18:07:43,264 - pytorch-ner-train - INFO - train f1 O: 0.9999819688641647
+2023-08-18 18:07:43,264 - pytorch-ner-train - INFO - train f1-weighted: 0.9999455157621148
+2023-08-18 18:07:43,264 - pytorch-ner-train - INFO - 
+
+2023-08-18 18:07:51,888 - pytorch-ner-train - INFO - valid loss: 0.40450587687487793
+2023-08-18 18:07:51,888 - pytorch-ner-train - INFO - valid f1 B-LOC: 0.2956027394122632
+2023-08-18 18:07:51,888 - pytorch-ner-train - INFO - valid f1 B-MISC: 0.13963054582102202
+2023-08-18 18:07:51,888 - pytorch-ner-train - INFO - valid f1 B-ORG: 0.19727035350411973
+2023-08-18 18:07:51,889 - pytorch-ner-train - INFO - valid f1 B-PER: 0.23628989313144713
+2023-08-18 18:07:51,889 - pytorch-ner-train - INFO - valid f1 I-LOC: 0.04323232323232323
+2023-08-18 18:07:51,889 - pytorch-ner-train - INFO - valid f1 I-MISC: 0.04164662497995831
+2023-08-18 18:07:51,889 - pytorch-ner-train - INFO - valid f1 I-ORG: 0.07227357058525889
+2023-08-18 18:07:51,889 - pytorch-ner-train - INFO - valid f1 I-PER: 0.1750096271528745
+2023-08-18 18:07:51,889 - pytorch-ner-train - INFO - valid f1 O: 0.9301842230993453
+2023-08-18 18:07:51,890 - pytorch-ner-train - INFO - valid f1-weighted: 0.919135145310442
+2023-08-18 18:07:51,890 - pytorch-ner-train - INFO - 
+
+2023-08-18 18:07:51,890 - pytorch-ner-train - INFO - epoch [49/50]
+
+2023-08-18 18:07:53,537 - pytorch-ner-train - INFO - train loss: 0.0003292318694964367
+2023-08-18 18:07:53,537 - pytorch-ner-train - INFO - train f1 B-LOC: 0.999414422784761
+2023-08-18 18:07:53,537 - pytorch-ner-train - INFO - train f1 B-MISC: 0.9998445031876846
+2023-08-18 18:07:53,538 - pytorch-ner-train - INFO - train f1 B-ORG: 0.9997599949588069
+2023-08-18 18:07:53,538 - pytorch-ner-train - INFO - train f1 B-PER: 1.0
+2023-08-18 18:07:53,538 - pytorch-ner-train - INFO - train f1 I-LOC: 0.9988354176371519
+2023-08-18 18:07:53,538 - pytorch-ner-train - INFO - train f1 I-MISC: 0.999639379733141
+2023-08-18 18:07:53,538 - pytorch-ner-train - INFO - train f1 I-ORG: 0.9995595585771168
+2023-08-18 18:07:53,538 - pytorch-ner-train - INFO - train f1 I-PER: 1.0
+2023-08-18 18:07:53,538 - pytorch-ner-train - INFO - train f1 O: 0.9999822735139645
+2023-08-18 18:07:53,538 - pytorch-ner-train - INFO - train f1-weighted: 0.9999359353847769
+2023-08-18 18:07:53,538 - pytorch-ner-train - INFO - 
+
+2023-08-18 18:08:02,200 - pytorch-ner-train - INFO - valid loss: 0.40080344925868966
+2023-08-18 18:08:02,200 - pytorch-ner-train - INFO - valid f1 B-LOC: 0.2955931194026432
+2023-08-18 18:08:02,201 - pytorch-ner-train - INFO - valid f1 B-MISC: 0.1397267459172221
+2023-08-18 18:08:02,201 - pytorch-ner-train - INFO - valid f1 B-ORG: 0.19565556617504667
+2023-08-18 18:08:02,201 - pytorch-ner-train - INFO - valid f1 B-PER: 0.23621896998693093
+2023-08-18 18:08:02,201 - pytorch-ner-train - INFO - valid f1 I-LOC: 0.04323232323232323
+2023-08-18 18:08:02,201 - pytorch-ner-train - INFO - valid f1 I-MISC: 0.04168510501843835
+2023-08-18 18:08:02,202 - pytorch-ner-train - INFO - valid f1 I-ORG: 0.07205093607691011
+2023-08-18 18:08:02,202 - pytorch-ner-train - INFO - valid f1 I-PER: 0.17510399486628986
+2023-08-18 18:08:02,202 - pytorch-ner-train - INFO - valid f1 O: 0.931201243971271
+2023-08-18 18:08:02,202 - pytorch-ner-train - INFO - valid f1-weighted: 0.9196366127736152
+2023-08-18 18:08:02,202 - pytorch-ner-train - INFO - 
+
+2023-08-18 18:08:02,202 - pytorch-ner-train - INFO - epoch [50/50]
+
+2023-08-18 18:08:03,831 - pytorch-ner-train - INFO - train loss: 0.00032631769210052816
+2023-08-18 18:08:03,831 - pytorch-ner-train - INFO - train f1 B-LOC: 0.9993979109858074
+2023-08-18 18:08:03,831 - pytorch-ner-train - INFO - train f1 B-MISC: 0.9998622020118506
+2023-08-18 18:08:03,831 - pytorch-ner-train - INFO - train f1 B-ORG: 0.9996335145222668
+2023-08-18 18:08:03,831 - pytorch-ner-train - INFO - train f1 B-PER: 1.0
+2023-08-18 18:08:03,832 - pytorch-ner-train - INFO - train f1 I-LOC: 0.9996540989277067
+2023-08-18 18:08:03,832 - pytorch-ner-train - INFO - train f1 I-MISC: 0.9994863893168978
+2023-08-18 18:08:03,832 - pytorch-ner-train - INFO - train f1 I-ORG: 0.9994258807734505
+2023-08-18 18:08:03,832 - pytorch-ner-train - INFO - train f1 I-PER: 1.0
+2023-08-18 18:08:03,832 - pytorch-ner-train - INFO - train f1 O: 0.999976184703629
+2023-08-18 18:08:03,832 - pytorch-ner-train - INFO - train f1-weighted: 0.9999266369281938
+2023-08-18 18:08:03,832 - pytorch-ner-train - INFO - 
+
+2023-08-18 18:08:12,586 - pytorch-ner-train - INFO - valid loss: 0.4029476394818261
+2023-08-18 18:08:12,587 - pytorch-ner-train - INFO - valid f1 B-LOC: 0.2961991800087038
+2023-08-18 18:08:12,587 - pytorch-ner-train - INFO - valid f1 B-MISC: 0.1397267459172221
+2023-08-18 18:08:12,587 - pytorch-ner-train - INFO - valid f1 B-ORG: 0.19634820686768736
+2023-08-18 18:08:12,587 - pytorch-ner-train - INFO - valid f1 B-PER: 0.23226393031760553
+2023-08-18 18:08:12,587 - pytorch-ner-train - INFO - valid f1 I-LOC: 0.04323232323232323
+2023-08-18 18:08:12,587 - pytorch-ner-train - INFO - valid f1 I-MISC: 0.04149270482603815
+2023-08-18 18:08:12,588 - pytorch-ner-train - INFO - valid f1 I-ORG: 0.07263294665892069
+2023-08-18 18:08:12,588 - pytorch-ner-train - INFO - valid f1 I-PER: 0.1749180080136363
+2023-08-18 18:08:12,588 - pytorch-ner-train - INFO - valid f1 O: 0.9312210502270116
+2023-08-18 18:08:12,588 - pytorch-ner-train - INFO - valid f1-weighted: 0.9195422582924218
+2023-08-18 18:08:12,588 - pytorch-ner-train - INFO - 
+
+2023-08-18 18:08:21,535 - pytorch-ner-train - INFO - test loss: 0.7296910180557871
+2023-08-18 18:08:21,535 - pytorch-ner-train - INFO - test f1 B-LOC: 0.22904903344762156
+2023-08-18 18:08:21,535 - pytorch-ner-train - INFO - test f1 B-MISC: 0.09460520021204245
+2023-08-18 18:08:21,536 - pytorch-ner-train - INFO - test f1 B-ORG: 0.23581410745407486
+2023-08-18 18:08:21,536 - pytorch-ner-train - INFO - test f1 B-PER: 0.17305354071600662
+2023-08-18 18:08:21,536 - pytorch-ner-train - INFO - test f1 I-LOC: 0.025884695447551814
+2023-08-18 18:08:21,536 - pytorch-ner-train - INFO - test f1 I-MISC: 0.023987949782139303
+2023-08-18 18:08:21,536 - pytorch-ner-train - INFO - test f1 I-ORG: 0.08882763189155037
+2023-08-18 18:08:21,537 - pytorch-ner-train - INFO - test f1 I-PER: 0.13067403080765963
+2023-08-18 18:08:21,537 - pytorch-ner-train - INFO - test f1 O: 0.8819344220061937
+2023-08-18 18:08:21,537 - pytorch-ner-train - INFO - test f1-weighted: 0.8565391507028522
+2023-08-18 18:08:21,537 - pytorch-ner-train - INFO - 
+
